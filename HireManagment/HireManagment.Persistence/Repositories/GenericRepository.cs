@@ -9,6 +9,12 @@ namespace HireManagment.Persistence.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
+        private readonly HireManagmentDbContext _dbContext;
+
+        public GenericRepository(HireManagmentDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
 
         public Task<T> Add(T entity)
         {
