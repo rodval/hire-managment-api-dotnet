@@ -15,10 +15,10 @@ namespace HireManagment.Persistence
         { 
         }
 
-        public DbSet<CompanyAdmin> CompanyAdmins { get; set; }
+        public DbSet<CompanyAdmin>? CompanyAdmins { get; set; }
         public DbSet<Company>? Companies { get; set; }
-        public DbSet<CompanyEmployee> CompanyEmployees { get; set; }
-        public DbSet<Opening> Openings { get; set; }
+        public DbSet<CompanyEmployee>? CompanyEmployees { get; set; }
+        public DbSet<Opening>? Openings { get; set; }
         public DbSet<Candidate>? Candidates { get; set; }
         public DbSet<OpeningApplication>? OpeningApplications { get; set; }
     }

@@ -16,7 +16,8 @@ namespace HireManagment.Persistence
         public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<HireManagmentDbContext>(options =>
-               options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=hireManagment_db;Trusted_Connection=True;MultipleActiveResultSets=true"));
+               options.UseSqlServer(
+                   configuration.GetConnectionString("HireManagementConnectionString")));
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
