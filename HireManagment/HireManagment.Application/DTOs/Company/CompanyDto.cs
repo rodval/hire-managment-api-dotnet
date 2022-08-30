@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.DTOs.Company
 {
-    internal class CompanyDto : BaseDto
+    public class CompanyDto : BaseDto
     {
     }
 }
