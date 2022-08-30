@@ -12,5 +12,8 @@ namespace HireManagment.Domain
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Address { get; set; }
+
+        public int CompanyAdminId { get; set; }
+        public virtual CompanyAdmin? CompanyAdmin { get; set; }
     }
 }
