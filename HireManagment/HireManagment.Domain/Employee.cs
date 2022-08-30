@@ -11,5 +11,8 @@ namespace HireManagment.Domain
     public class Employee : Person
     {
         public EmployeeType EmployeeType { get; set; }
+
+        public int CompanyId { get; set; }
+        public virtual Company? Company { get; set; }
     }
 }
