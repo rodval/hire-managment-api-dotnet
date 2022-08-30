@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.Persistence.Contracts
 {
-    internal interface ICompanyRepository : IGenericRepository<Company>
+    public interface ICompanyRepository : IGenericRepository<Company>
     {
     }
 }
