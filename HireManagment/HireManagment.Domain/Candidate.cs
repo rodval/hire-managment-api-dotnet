@@ -10,6 +10,6 @@ namespace HireManagment.Domain
 {
     public class Candidate : BaseDomainEntity
     {
-        public CandidatesStatusType Status { get; set; }
+        
     }
 }
