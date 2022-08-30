@@ -1,4 +1,5 @@
 ﻿using HireManagment.Domain.Common;
+using HireManagment.Domain.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Domain
 {
-    public class CandidateStatus : BaseDomainEntity
+    public class Candidate : BaseDomainEntity
     {
-        public string? Status { get; set; }
+        public CandidatesStatusType Status { get; set; }
     }
 }
