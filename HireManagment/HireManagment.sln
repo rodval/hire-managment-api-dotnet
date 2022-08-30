@@ -3,9 +3,56 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5A819BFD-9C5B-477A-B2C9-CB95544D4420}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{8D6D91FD-6D70-4C7E-BD5A-CC7F324ABE61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{0648E3A8-C4A9-4A45-94D4-67163F03B36F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{48A40587-C924-472F-939B-D3621E092902}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireManagment.Domain", "HireManagment.Domain\HireManagment.Domain.csproj", "{EEA8ED1E-A888-4C19-B1A5-B0909E7024DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireManagment.Application", "HireManagment.Application\HireManagment.Application.csproj", "{635DC289-8844-4C74-9251-7BAB6CA134E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireManagment.Persistence", "HireManagment.Persistence\HireManagment.Persistence.csproj", "{7809BD45-888F-4021-B4DE-0B1EE635987B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireManagment.API", "HireManagment.API\HireManagment.API.csproj", "{B8C2BC54-F469-44A9-8AD3-27FC6F81B4F8}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEA8ED1E-A888-4C19-B1A5-B0909E7024DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEA8ED1E-A888-4C19-B1A5-B0909E7024DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEA8ED1E-A888-4C19-B1A5-B0909E7024DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEA8ED1E-A888-4C19-B1A5-B0909E7024DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{635DC289-8844-4C74-9251-7BAB6CA134E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{635DC289-8844-4C74-9251-7BAB6CA134E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{635DC289-8844-4C74-9251-7BAB6CA134E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{635DC289-8844-4C74-9251-7BAB6CA134E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7809BD45-888F-4021-B4DE-0B1EE635987B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7809BD45-888F-4021-B4DE-0B1EE635987B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7809BD45-888F-4021-B4DE-0B1EE635987B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7809BD45-888F-4021-B4DE-0B1EE635987B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8C2BC54-F469-44A9-8AD3-27FC6F81B4F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8C2BC54-F469-44A9-8AD3-27FC6F81B4F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8C2BC54-F469-44A9-8AD3-27FC6F81B4F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8C2BC54-F469-44A9-8AD3-27FC6F81B4F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8D6D91FD-6D70-4C7E-BD5A-CC7F324ABE61} = {5A819BFD-9C5B-477A-B2C9-CB95544D4420}
+		{0648E3A8-C4A9-4A45-94D4-67163F03B36F} = {5A819BFD-9C5B-477A-B2C9-CB95544D4420}
+		{48A40587-C924-472F-939B-D3621E092902} = {5A819BFD-9C5B-477A-B2C9-CB95544D4420}
+		{EEA8ED1E-A888-4C19-B1A5-B0909E7024DA} = {0648E3A8-C4A9-4A45-94D4-67163F03B36F}
+		{635DC289-8844-4C74-9251-7BAB6CA134E0} = {0648E3A8-C4A9-4A45-94D4-67163F03B36F}
+		{7809BD45-888F-4021-B4DE-0B1EE635987B} = {48A40587-C924-472F-939B-D3621E092902}
+		{B8C2BC54-F469-44A9-8AD3-27FC6F81B4F8} = {8D6D91FD-6D70-4C7E-BD5A-CC7F324ABE61}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3FC3B03D-E377-4A94-989C-F13D4A61EB91}
