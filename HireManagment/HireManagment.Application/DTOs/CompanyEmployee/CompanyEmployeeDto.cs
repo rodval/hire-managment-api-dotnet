@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.DTOs.CompanyEmployee
 {
-    internal class CompanyEmployeeDto : PersonDto
+    public class CompanyEmployeeDto : PersonDto
     {
         public EmployeeType EmployeeType { get; set; }
 
