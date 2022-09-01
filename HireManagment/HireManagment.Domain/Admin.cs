@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Domain
 {
-    public class CompanyAdmin : Person
+    public class Admin : Person
     {
     }
 }

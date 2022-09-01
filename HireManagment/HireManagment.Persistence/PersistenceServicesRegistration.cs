@@ -1,4 +1,4 @@
-﻿using HireManagment.Application.Persistence.Contracts;
+﻿using HireManagment.Application.Contracts.Persistence;
 using HireManagment.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

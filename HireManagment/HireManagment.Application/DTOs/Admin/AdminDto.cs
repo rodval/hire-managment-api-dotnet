@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HireManagment.Application.DTOs.CompanyAdmin
+namespace HireManagment.Application.DTOs.Admin
 {
-    public class CompanyAdminDto : PersonDto
+    public class AdminDto : PersonDto
     {
     }
 }

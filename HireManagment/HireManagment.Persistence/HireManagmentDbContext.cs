@@ -15,7 +15,7 @@ namespace HireManagment.Persistence
         { 
         }
 
-        public DbSet<CompanyAdmin>? CompanyAdmins { get; set; }
+        public DbSet<Admin>? CompanyAdmins { get; set; }
         public DbSet<Company>? Companies { get; set; }
         public DbSet<CompanyEmployee>? CompanyEmployees { get; set; }
         public DbSet<Opening>? Openings { get; set; }

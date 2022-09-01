@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HireManagment.Application.Persistence.Contracts
+namespace HireManagment.Application.Contracts.Persistence
 {
-    public interface ICompanyAdmins : IGenericRepository<CompanyAdmin>
+    public interface ICandidateRepository : IGenericRepository<Candidate>
     {
     }
 }

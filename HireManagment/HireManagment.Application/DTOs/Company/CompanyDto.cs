@@ -1,5 +1,5 @@
 ﻿using HireManagment.Application.DTOs.Common;
-using HireManagment.Application.DTOs.CompanyAdmin;
+using HireManagment.Application.DTOs.Admin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ namespace HireManagment.Application.DTOs.Company
         public string? Description { get; set; }
         public string? Address { get; set; }
 
-        public int CompanyAdminId { get; set; }
-        public virtual CompanyAdminDto? CompanyAdmin { get; set; }
+        public int AdminId { get; set; }
+        public virtual AdminDto? Admin { get; set; }
     }
 }

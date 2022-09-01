@@ -1,4 +1,4 @@
-﻿using HireManagment.Application.Persistence.Contracts;
+﻿using HireManagment.Application.Contracts.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;

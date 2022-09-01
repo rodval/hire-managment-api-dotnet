@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using HireManagment.Application.DTOs.Candidate;
 using HireManagment.Application.DTOs.Company;
-using HireManagment.Application.DTOs.CompanyAdmin;
+using HireManagment.Application.DTOs.Admin;
 using HireManagment.Application.DTOs.CompanyEmployee;
 using HireManagment.Application.DTOs.Opening;
 using HireManagment.Application.DTOs.OpeningApplication;
@@ -20,7 +20,7 @@ namespace HireManagment.Application.Profiles
         {
             CreateMap<Candidate, CandidateDto>().ReverseMap();
             CreateMap<Company, CompanyDto>().ReverseMap();
-            CreateMap<CompanyAdmin, CompanyAdminDto>().ReverseMap();
+            CreateMap<Admin, AdminDto>().ReverseMap();
             CreateMap<CompanyEmployee, CompanyEmployeeDto>().ReverseMap();
             CreateMap<Opening, OpeningDto>().ReverseMap();
             CreateMap<OpeningApplication, OpeningApplicationDto>().ReverseMap();
