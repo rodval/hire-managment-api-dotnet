@@ -1,4 +1,5 @@
 ﻿using HireManagment.Application.Contracts.Persistence;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,34 +17,14 @@ namespace HireManagment.Persistence.Repositories
             _dbContext = dbContext;
         }
 
-        public Task<T> Add(T entity)
+        public async Task<T> Get(int id)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Set<T>().FindAsync(id);
         }
 
-        public Task Delete(T entity)
+        public async Task<IReadOnlyList<T>> GetAll()
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> Exists(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<T> Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IReadOnlyList<T>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Update(T entity)
-        {
-            throw new NotImplementedException();
+            return await _dbContext.Set<T>().ToListAsync();
         }
     }
 }

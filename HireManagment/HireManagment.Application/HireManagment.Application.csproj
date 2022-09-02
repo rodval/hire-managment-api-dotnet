@@ -7,17 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Admin\Handlers\Commands\**" />
+    <Compile Remove="Features\Admin\Request\Commands\**" />
+    <EmbeddedResource Remove="Features\Admin\Handlers\Commands\**" />
+    <EmbeddedResource Remove="Features\Admin\Request\Commands\**" />
+    <None Remove="Features\Admin\Handlers\Commands\**" />
+    <None Remove="Features\Admin\Request\Commands\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\HireManagment.Domain\HireManagment.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\Admin\Handlers\Commands\" />
-    <Folder Include="Features\Admin\Request\Commands\" />
   </ItemGroup>
 
 </Project>

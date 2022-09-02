@@ -18,9 +18,11 @@ namespace HireManagment.Application.Profiles
     {
         public MappingProfile() 
         {
+            CreateMap<Admin, AdminDto>().ReverseMap();
+            CreateMap<Admin, AdminListDto>().ReverseMap();
+
             CreateMap<Candidate, CandidateDto>().ReverseMap();
             CreateMap<Company, CompanyDto>().ReverseMap();
-            CreateMap<Admin, AdminDto>().ReverseMap();
             CreateMap<CompanyEmployee, CompanyEmployeeDto>().ReverseMap();
             CreateMap<Opening, OpeningDto>().ReverseMap();
             CreateMap<OpeningApplication, OpeningApplicationDto>().ReverseMap();

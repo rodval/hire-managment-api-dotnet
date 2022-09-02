@@ -20,6 +20,7 @@ namespace HireManagment.Persistence
                    configuration.GetConnectionString("HireManagementConnectionString")));
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped(typeof(IAdminRepository), typeof(AdminRepository));
 
             return services;
         }
