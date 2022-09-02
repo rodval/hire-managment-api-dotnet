@@ -15,4 +15,9 @@
     <ProjectReference Include="..\HireManagment.Domain\HireManagment.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Admin\Handlers\Commands\" />
+    <Folder Include="Features\Admin\Request\Commands\" />
+  </ItemGroup>
+
 </Project>
