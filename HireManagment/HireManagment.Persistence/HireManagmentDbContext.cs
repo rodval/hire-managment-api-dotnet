@@ -20,7 +20,7 @@ namespace HireManagment.Persistence
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(HireManagmentDbContext).Assembly);
         }
 
-        public DbSet<Admin>? Admins { get; set; }
+        public DbSet<AdminApi>? Admins { get; set; }
         public DbSet<Company>? Companies { get; set; }
         public DbSet<CompanyEmployee>? CompanyEmployees { get; set; }
         public DbSet<Opening>? Openings { get; set; }

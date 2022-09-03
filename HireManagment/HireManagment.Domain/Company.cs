@@ -14,6 +14,6 @@ namespace HireManagment.Domain
         public string? Address { get; set; }
 
         public int AdminId { get; set; }
-        public virtual Admin? Admin { get; set; }
+        public virtual AdminApi? Admin { get; set; }
     }
 }

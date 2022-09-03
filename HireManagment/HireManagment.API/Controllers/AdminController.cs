@@ -1,7 +1,11 @@
 ﻿using HireManagment.Application.DTOs.Admin;
+using HireManagment.Application.Features.Admin.Request.Commands;
 using HireManagment.Application.Features.Admin.Request.Queries;
+using HireManagment.Application.Responses;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace HireManagment.API.Controllers
 {
@@ -28,6 +32,17 @@ namespace HireManagment.API.Controllers
         {
             var admin = await _mediator.Send(new GetAdminRequest { AdminId = adminId });
             return Ok(admin);
+        }
+
+        // POST api/<LeaveTypesController>
+        [HttpPost]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public async Task<ActionResult<BaseCommandResponses>> Post([FromBody] AdminManagmentDto admin)
+        {
+            var command = new CreateAdminCommand { AdminManagmentDto = admin };
+            var response = await _mediator.Send(command);
+            return Ok(response);
         }
     }
 }

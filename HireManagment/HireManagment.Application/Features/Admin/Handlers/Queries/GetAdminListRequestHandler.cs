@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.Features.Admin.Handlers.Queries
 {
-    internal class GetAdminListRequestHandler : IRequestHandler<GetAdminListRequest, List<AdminListDto>>
+    public class GetAdminListRequestHandler : IRequestHandler<GetAdminListRequest, List<AdminListDto>>
     {
         private readonly IAdminRepository _adminRepository;
         private readonly IMapper _mapper;

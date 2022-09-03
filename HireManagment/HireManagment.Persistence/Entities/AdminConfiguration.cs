@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Domain.Entities
 {
-    public class AdminConfiguration : IEntityTypeConfiguration<Admin>
+    public class AdminConfiguration : IEntityTypeConfiguration<AdminApi>
     {
-        public void Configure(EntityTypeBuilder<Admin> builder)
+        public void Configure(EntityTypeBuilder<AdminApi> builder)
         {
             builder.HasData(
-                new Admin
+                new AdminApi
                 {
                     Id = 1,
                     FirstName = "Robert",
@@ -21,7 +21,7 @@ namespace HireManagment.Domain.Entities
                     Age = 32,
                     Email = "rodrigovalladares1@gmail.com"
                 },
-                new Admin
+                new AdminApi
                 {
                     Id = 2,
                     FirstName = "Felix",

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.Contracts.Persistence
 {
-    public interface IOpeningApplication : IGenericRepository<OpeningApplication>
+    public interface IOpeningRepository : IGenericRepository<Opening>
     {
     }
 }

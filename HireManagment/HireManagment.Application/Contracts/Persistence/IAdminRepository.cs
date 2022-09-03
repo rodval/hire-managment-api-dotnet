@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.Contracts.Persistence
 {
-    public interface IAdminRepository : IGenericRepository<Admin>
+    public interface IAdminRepository : IGenericRepository<AdminApi>
     {
         
     }

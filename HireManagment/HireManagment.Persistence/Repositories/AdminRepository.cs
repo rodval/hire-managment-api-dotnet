@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Persistence.Repositories
 {
-    public class AdminRepository : GenericRepository<Admin>, IAdminRepository
+    public class AdminRepository : GenericRepository<AdminApi>, IAdminRepository
     {
         private readonly HireManagmentDbContext _dbContext;
 
