@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.DTOs.Admin
 {
-    public class AdminManagmentDto : PersonDto
+    public class AdminApiListDto : BaseDto
     {
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
     }
 }

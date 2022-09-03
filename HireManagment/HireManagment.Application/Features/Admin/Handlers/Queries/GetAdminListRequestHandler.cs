@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.Features.Admin.Handlers.Queries
 {
-    public class GetAdminListRequestHandler : IRequestHandler<GetAdminListRequest, List<AdminListDto>>
+    public class GetAdminListRequestHandler : IRequestHandler<GetAdminListRequest, List<AdminApiListDto>>
     {
         private readonly IAdminRepository _adminRepository;
         private readonly IMapper _mapper;
@@ -22,10 +22,10 @@ namespace HireManagment.Application.Features.Admin.Handlers.Queries
             _mapper = mapper;
         }
 
-        public async Task<List<AdminListDto>> Handle(GetAdminListRequest request, CancellationToken cancellationToken)
+        public async Task<List<AdminApiListDto>> Handle(GetAdminListRequest request, CancellationToken cancellationToken)
         {
             var admin = await _adminRepository.GetAll();
-            return _mapper.Map<List<AdminListDto>>(admin);
+            return _mapper.Map<List<AdminApiListDto>>(admin);
         }
     }
 }

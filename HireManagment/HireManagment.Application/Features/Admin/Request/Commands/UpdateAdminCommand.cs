@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.Features.Admin.Request.Commands
 {
-    public class CreateAdminCommand : IRequest<BaseCommandResponses>
+    public class UpdateAdminCommand : IRequest<Unit>
     {
-        public CreateAdminApiDto CreateAdminApi { get; set; }
+        public AdminApiDto AdminApi { get; set; }
     }
 }

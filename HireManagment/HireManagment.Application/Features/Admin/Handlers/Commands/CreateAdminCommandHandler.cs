@@ -26,7 +26,7 @@ namespace HireManagment.Application.Features.Admin.Handlers.Commands
         public async Task<BaseCommandResponses> Handle(CreateAdminCommand request, CancellationToken cancellationToken)
         {
             var response = new BaseCommandResponses();
-            var admin = _mapper.Map<AdminApi>(request.AdminManagmentDto);
+            var admin = _mapper.Map<AdminApi>(request.CreateAdminApi);
 
             admin = await _unitOfWork.AdminRepository.Add(admin);
             await _unitOfWork.Save();

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.Features.Admin.Request.Queries
 {
-    public class GetAdminListRequest : IRequest<List<AdminListDto>>
+    public class GetAdminListRequest : IRequest<List<AdminApiListDto>>
     {
     }
 }

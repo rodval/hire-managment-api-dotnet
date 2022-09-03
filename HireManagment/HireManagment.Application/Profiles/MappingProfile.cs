@@ -19,9 +19,9 @@ namespace HireManagment.Application.Profiles
         public MappingProfile() 
         {
             #region LeaveRequest Mappings
-            CreateMap<AdminApi, AdminDto>().ReverseMap();
-            CreateMap<AdminApi, AdminListDto>().ReverseMap();
-            CreateMap<AdminApi, AdminManagmentDto>().ReverseMap();
+            CreateMap<AdminApi, AdminApiDto>().ReverseMap();
+            CreateMap<AdminApi, AdminApiListDto>().ReverseMap();
+            CreateMap<AdminApi, CreateAdminApiDto>().ReverseMap();
             #endregion LeaveRequest Mappings
 
             CreateMap<Candidate, CandidateDto>().ReverseMap();
