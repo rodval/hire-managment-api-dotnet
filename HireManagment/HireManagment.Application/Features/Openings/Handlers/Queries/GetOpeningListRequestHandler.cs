@@ -15,10 +15,10 @@ namespace HireManagment.Application.Features.Openings.Handlers.Queries
 {
     public class GetOpeningListRequestHandler : IRequestHandler<GetOpeningListRequest, List<OpeningListDto>>
     {
-        private readonly IAdminRepository _repository;
+        private readonly IOpeningRepository _repository;
         private readonly IMapper _mapper;
 
-        public GetOpeningListRequestHandler(IAdminRepository repository, IMapper mapper)
+        public GetOpeningListRequestHandler(IOpeningRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
