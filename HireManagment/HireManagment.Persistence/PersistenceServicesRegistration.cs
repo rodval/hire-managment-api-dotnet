@@ -25,6 +25,7 @@ namespace HireManagment.Persistence
             services.AddScoped(typeof(IAdminRepository), typeof(AdminRepository));
             services.AddScoped(typeof(ICompanyRepository), typeof(CompanyRepository));
             services.AddScoped(typeof(ICompanyEmployeeRepository), typeof(CompanyEmployeeRepository));
+            services.AddScoped(typeof(IOpeningRepository), typeof(OpeningRepository));
 
             return services;
         }
