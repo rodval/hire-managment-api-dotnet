@@ -12,11 +12,11 @@ namespace HireManagment.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CandidateRepository : Controller
+    public class CandidateController : Controller
     {
         private readonly IMediator _mediator;
 
-        public CandidateRepository(IMediator mediator)
+        public CandidateController(IMediator mediator)
         {
             _mediator = mediator;
         }
