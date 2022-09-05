@@ -1,4 +1,5 @@
-﻿using HireManagment.Application.DTOs.CompanyEmployee;
+﻿using HireManagment.Application.DTOs.Common;
+using HireManagment.Application.DTOs.CompanyEmployee;
 using HireManagment.Domain.Utilities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.DTOs.Opening
 {
-    public class OpeningDto
+    public class OpeningDto : BaseDto
     {
         public string? Title { get; set; }
         public string? Description { get; set; }
