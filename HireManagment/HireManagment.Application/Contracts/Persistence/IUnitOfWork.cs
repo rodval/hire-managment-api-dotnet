@@ -11,12 +11,13 @@ namespace HireManagment.Application.Contracts.Persistence
         IAdminRepository AdminRepository { get; }
         ICompanyRepository CompanyRepository { get; }
         ICompanyEmployeeRepository CompanyEmployeeRepository { get; }
+        IOpeningRepository OpeningRepository { get; }
 
         /*ICandidateRepository CandidateRepository { get; }
         
         
         IOpeningApplicationRepository OpeningApplicationRepository { get; }
-        IOpeningRepository OpeningRepository { get; }*/
+        */
         Task Save();
     }
 }
