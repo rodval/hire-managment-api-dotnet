@@ -9,9 +9,11 @@ namespace HireManagment.Application.Contracts.Persistence
     public interface IUnitOfWork : IDisposable
     {
         IAdminRepository AdminRepository { get; }
+        ICompanyRepository CompanyRepository { get; }
+
         /*ICandidateRepository CandidateRepository { get; }
         ICompanyEmployeeRepository CompanyEmployee { get; }
-        ICompanyRepository CompanyRepository { get; }
+        
         IOpeningApplicationRepository OpeningApplicationRepository { get; }
         IOpeningRepository OpeningRepository { get; }*/
         Task Save();

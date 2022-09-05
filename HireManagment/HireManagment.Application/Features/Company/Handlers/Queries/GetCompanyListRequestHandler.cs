@@ -15,10 +15,10 @@ namespace HireManagment.Application.Features.Company.Handlers.Queries
 {
     public class GetCompanyListRequestHandler : IRequestHandler<GetCompanyListRequest, List<CompanyListDto>>
     {
-        private readonly IAdminRepository _repository;
+        private readonly ICompanyRepository _repository;
         private readonly IMapper _mapper;
 
-        public GetCompanyListRequestHandler(IAdminRepository repository, IMapper mapper)
+        public GetCompanyListRequestHandler(ICompanyRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
