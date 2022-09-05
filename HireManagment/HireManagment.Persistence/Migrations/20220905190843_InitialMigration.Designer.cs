@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HireManagment.Persistence.Migrations
 {
     [DbContext(typeof(HireManagmentDbContext))]
-    [Migration("20220905151323_InitialMigration")]
+    [Migration("20220905190843_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -176,6 +176,48 @@ namespace HireManagment.Persistence.Migrations
                     b.HasIndex("CompanyId");
 
                     b.ToTable("CompanyEmployees");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Age = 32,
+                            CompanyId = 1,
+                            Email = "rodrigovalladares1@gmail.com",
+                            EmployeeType = 1,
+                            FirstName = "Henry",
+                            LastName = "Walas"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Age = 32,
+                            CompanyId = 1,
+                            Email = "rodrigovalladares1@gmail.com",
+                            EmployeeType = 2,
+                            FirstName = "Brook",
+                            LastName = "Bane"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Age = 32,
+                            CompanyId = 2,
+                            Email = "rodrigovalladares1@gmail.com",
+                            EmployeeType = 1,
+                            FirstName = "Harry",
+                            LastName = "Stevens"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Age = 32,
+                            CompanyId = 3,
+                            Email = "rodrigovalladares1@gmail.com",
+                            EmployeeType = 1,
+                            FirstName = "Alfonse",
+                            LastName = "Elric"
+                        });
                 });
 
             modelBuilder.Entity("HireManagment.Domain.Opening", b =>
@@ -209,6 +251,28 @@ namespace HireManagment.Persistence.Migrations
                     b.HasIndex("CompanyEmployeeId");
 
                     b.ToTable("Openings");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CompanyEmployeeId = 1,
+                            DateCreated = new DateTime(2022, 9, 5, 13, 8, 43, 212, DateTimeKind.Local).AddTicks(4332),
+                            DateExpiration = new DateTime(2022, 9, 15, 13, 8, 43, 212, DateTimeKind.Local).AddTicks(4344),
+                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+                            OpeningType = 1,
+                            Title = "New Vancancy"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CompanyEmployeeId = 3,
+                            DateCreated = new DateTime(2022, 9, 5, 13, 8, 43, 212, DateTimeKind.Local).AddTicks(4352),
+                            DateExpiration = new DateTime(2022, 9, 30, 13, 8, 43, 212, DateTimeKind.Local).AddTicks(4352),
+                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+                            OpeningType = 1,
+                            Title = "New Vancancy 2"
+                        });
                 });
 
             modelBuilder.Entity("HireManagment.Domain.OpeningApplication", b =>

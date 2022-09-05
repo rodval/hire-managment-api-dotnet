@@ -164,6 +164,27 @@ namespace HireManagment.Persistence.Migrations
                 columns: new[] { "Id", "Address", "AdminId", "Description", "Name" },
                 values: new object[] { 3, "address", 2, "company 3", "Miami Heat" });
 
+            migrationBuilder.InsertData(
+                table: "CompanyEmployees",
+                columns: new[] { "Id", "Age", "CompanyId", "Email", "EmployeeType", "FirstName", "LastName" },
+                values: new object[,]
+                {
+                    { 1, 32, 1, "rodrigovalladares1@gmail.com", 1, "Henry", "Walas" },
+                    { 2, 32, 1, "rodrigovalladares1@gmail.com", 2, "Brook", "Bane" },
+                    { 3, 32, 2, "rodrigovalladares1@gmail.com", 1, "Harry", "Stevens" },
+                    { 4, 32, 3, "rodrigovalladares1@gmail.com", 1, "Alfonse", "Elric" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Openings",
+                columns: new[] { "Id", "CompanyEmployeeId", "DateCreated", "DateExpiration", "Description", "OpeningType", "Title" },
+                values: new object[] { 1, 1, new DateTime(2022, 9, 5, 13, 8, 43, 212, DateTimeKind.Local).AddTicks(4332), new DateTime(2022, 9, 15, 13, 8, 43, 212, DateTimeKind.Local).AddTicks(4344), "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.", 1, "New Vancancy" });
+
+            migrationBuilder.InsertData(
+                table: "Openings",
+                columns: new[] { "Id", "CompanyEmployeeId", "DateCreated", "DateExpiration", "Description", "OpeningType", "Title" },
+                values: new object[] { 2, 3, new DateTime(2022, 9, 5, 13, 8, 43, 212, DateTimeKind.Local).AddTicks(4352), new DateTime(2022, 9, 30, 13, 8, 43, 212, DateTimeKind.Local).AddTicks(4352), "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.", 1, "New Vancancy 2" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Companies_AdminId",
                 table: "Companies",
