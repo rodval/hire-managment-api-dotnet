@@ -10,9 +10,10 @@ namespace HireManagment.Application.Contracts.Persistence
     {
         IAdminRepository AdminRepository { get; }
         ICompanyRepository CompanyRepository { get; }
+        ICompanyEmployeeRepository CompanyEmployeeRepository { get; }
 
         /*ICandidateRepository CandidateRepository { get; }
-        ICompanyEmployeeRepository CompanyEmployee { get; }
+        
         
         IOpeningApplicationRepository OpeningApplicationRepository { get; }
         IOpeningRepository OpeningRepository { get; }*/
