@@ -10,15 +10,13 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.DTOs.OpeningApplication
 {
-    public class OpeningApplicationDto : BaseDto
+    public class OpeningApplicationListDto : BaseDto
     {
         public DateTime DateApplication { get; set; }
         public ApplicationStatusType Status { get; set; }
 
         public int CompanyEmployeeId { get; set; }
-        public virtual CompanyEmployeeDto? CompanyEmployee { get; set; }
 
         public int CandidateId { get; set; }
-        public virtual CandidateDto? Candidate { get; set; }
     }
 }
