@@ -15,6 +15,7 @@ namespace HireManagment.Persistence.Repositories
         private ICompanyEmployeeRepository _companyEmployeeRepository;
         private IOpeningRepository _openingRepository;
         private ICandidateRepository _candidateRepository;
+        private IOpeningApplicationRepository _openingApplicationRepository;
 
         public UnitOfWork(HireManagmentDbContext context)
         {
@@ -35,6 +36,9 @@ namespace HireManagment.Persistence.Repositories
 
         public ICandidateRepository CandidateRepository =>
             _candidateRepository ??= new CandidateRepository(_context);
+
+        public IOpeningApplicationRepository OpeningApplicationRepository =>
+            _openingApplicationRepository ??= new OpeningApplicationRepository(_context);
 
         public void Dispose()
         {
