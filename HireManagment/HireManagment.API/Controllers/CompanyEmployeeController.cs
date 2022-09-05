@@ -18,12 +18,12 @@ namespace HireManagment.API.Controllers
             _mediator = mediator;
         }
 
-        /*[HttpGet]
-        public async Task<ActionResult<List<AdminApiListDto>>> Get()
+        [HttpGet]
+        public async Task<ActionResult<List<CompanyEmployeeListDto>>> Get()
         {
-            var admins = await _mediator.Send(new GetAdminListRequest());
-            return Ok(admins);
-        }*/
+            var employee = await _mediator.Send(new GetCompanyEmployeeListRequest());
+            return Ok(employee);
+        }
 
         [HttpGet("{employeeId}")]
         public async Task<ActionResult<CompanyEmployeeDto>> Get(int employeeId)
