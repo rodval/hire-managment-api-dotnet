@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HireManagment.Application.Features.Company.Request.Queries
+namespace HireManagment.Application.Features.Companies.Request.Queries
 {
     public class GetCompanyListRequest : IRequest<List<CompanyListDto>>
     {

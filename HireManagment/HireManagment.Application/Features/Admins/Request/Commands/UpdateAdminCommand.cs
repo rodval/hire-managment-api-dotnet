@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HireManagment.Application.Features.Admin.Request.Commands
+namespace HireManagment.Application.Features.Admins.Request.Commands
 {
-    public class CreateAdminCommand : IRequest<BaseCommandResponses>
+    public class UpdateAdminCommand : IRequest<Unit>
     {
-        public CreateAdminApiDto CreateAdminApi { get; set; }
+        public AdminApiDto AdminApi { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using HireManagment.Application.Contracts.Persistence;
-using HireManagment.Application.Features.Admin.Request.Commands;
+using HireManagment.Application.Features.Companies.Request.Commands;
 using HireManagment.Application.Responses;
 using HireManagment.Domain;
 using MediatR;
@@ -10,30 +10,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HireManagment.Application.Features.Admin.Handlers.Commands
+namespace HireManagment.Application.Features.Companies.Handlers.Commands
 {
-    public class CreateAdminCommandHandler : IRequestHandler<CreateAdminCommand, BaseCommandResponses>
+    public class CreateCompanyCommandHandler : IRequestHandler<CreateCompanyCommand, BaseCommandResponses>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public CreateAdminCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public CreateCompanyCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
-        public async Task<BaseCommandResponses> Handle(CreateAdminCommand request, CancellationToken cancellationToken)
+        public async Task<BaseCommandResponses> Handle(CreateCompanyCommand request, CancellationToken cancellationToken)
         {
             var response = new BaseCommandResponses();
-            var admin = _mapper.Map<AdminApi>(request.CreateAdminApi);
+            var company = _mapper.Map<Company>(request.CreateCompany);
 
-            admin = await _unitOfWork.AdminRepository.Add(admin);
+            company = await _unitOfWork.CompanyRepository.Add(company);
             await _unitOfWork.Save();
 
             response.Success = true;
             response.Message = "Creation Successful";
-            response.Id = admin.Id;
+            response.Id = company.Id;
 
             return response;
         }

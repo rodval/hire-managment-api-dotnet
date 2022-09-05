@@ -22,7 +22,7 @@ namespace HireManagment.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("HireManagment.Domain.Admin", b =>
+            modelBuilder.Entity("HireManagment.Domain.AdminApi", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -115,6 +115,32 @@ namespace HireManagment.Persistence.Migrations
                     b.HasIndex("AdminId");
 
                     b.ToTable("Companies");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "address",
+                            AdminId = 1,
+                            Description = "company 1",
+                            Name = "Naughty Dog"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "address",
+                            AdminId = 1,
+                            Description = "company 2",
+                            Name = "Riot Games"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "address",
+                            AdminId = 2,
+                            Description = "company 3",
+                            Name = "Miami Heat"
+                        });
                 });
 
             modelBuilder.Entity("HireManagment.Domain.CompanyEmployee", b =>
@@ -214,7 +240,7 @@ namespace HireManagment.Persistence.Migrations
 
             modelBuilder.Entity("HireManagment.Domain.Company", b =>
                 {
-                    b.HasOne("HireManagment.Domain.Admin", "Admin")
+                    b.HasOne("HireManagment.Domain.AdminApi", "Admin")
                         .WithMany()
                         .HasForeignKey("AdminId")
                         .OnDelete(DeleteBehavior.Cascade)

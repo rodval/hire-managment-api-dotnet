@@ -149,6 +149,21 @@ namespace HireManagment.Persistence.Migrations
                 columns: new[] { "Id", "Age", "Email", "FirstName", "LastName" },
                 values: new object[] { 2, 32, "rodrigovalladares1@gmail.com", "Felix", "Feliz" });
 
+            migrationBuilder.InsertData(
+                table: "Companies",
+                columns: new[] { "Id", "Address", "AdminId", "Description", "Name" },
+                values: new object[] { 1, "address", 1, "company 1", "Naughty Dog" });
+
+            migrationBuilder.InsertData(
+                table: "Companies",
+                columns: new[] { "Id", "Address", "AdminId", "Description", "Name" },
+                values: new object[] { 2, "address", 1, "company 2", "Riot Games" });
+
+            migrationBuilder.InsertData(
+                table: "Companies",
+                columns: new[] { "Id", "Address", "AdminId", "Description", "Name" },
+                values: new object[] { 3, "address", 2, "company 3", "Miami Heat" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Companies_AdminId",
                 table: "Companies",

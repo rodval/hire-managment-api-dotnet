@@ -6,9 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HireManagment.Application.Features.Admin.Request.Queries
+namespace HireManagment.Application.Features.Admins.Request.Queries
 {
-    public class GetAdminListRequest : IRequest<List<AdminApiListDto>>
+    public class GetAdminRequest : IRequest<AdminApiDto>
     {
+        public int AdminId { get; set; }
     }
 }

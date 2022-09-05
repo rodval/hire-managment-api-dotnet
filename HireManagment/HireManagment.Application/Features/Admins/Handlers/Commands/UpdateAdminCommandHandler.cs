@@ -2,7 +2,7 @@
 using HireManagment.Application.Contracts.Persistence;
 using HireManagment.Application.DTOs.Admin;
 using HireManagment.Application.Exceptions;
-using HireManagment.Application.Features.Admin.Request.Commands;
+using HireManagment.Application.Features.Admins.Request.Commands;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HireManagment.Application.Features.Admin.Handlers.Commands
+namespace HireManagment.Application.Features.Admins.Handlers.Commands
 {
     public class UpdateAdminCommandHandler : IRequestHandler<UpdateAdminCommand, Unit>
     {

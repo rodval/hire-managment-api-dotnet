@@ -1,7 +1,8 @@
 ﻿using HireManagment.Application.DTOs.Admin;
 using HireManagment.Application.DTOs.Company;
-using HireManagment.Application.Features.Admin.Request.Queries;
-using HireManagment.Application.Features.Company.Request.Queries;
+using HireManagment.Application.Features.Companies.Request.Commands;
+using HireManagment.Application.Features.Companies.Request.Queries;
+using HireManagment.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,6 +24,23 @@ namespace HireManagment.API.Controllers
         {
             var admins = await _mediator.Send(new GetCompanyListRequest());
             return Ok(admins);
+        }
+
+        [HttpGet("{companyId}")]
+        public async Task<ActionResult<CompanyDto>> Get(int companyId)
+        {
+            var admin = await _mediator.Send(new GetCompanyRequest { CompanyId = companyId });
+            return Ok(admin);
+        }
+
+        [HttpPost]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public async Task<ActionResult<BaseCommandResponses>> Post([FromBody] CreateCompanyDto company)
+        {
+            var command = new CreateCompanyCommand { CreateCompany = company };
+            var response = await _mediator.Send(command);
+            return Ok(response);
         }
     }
 }

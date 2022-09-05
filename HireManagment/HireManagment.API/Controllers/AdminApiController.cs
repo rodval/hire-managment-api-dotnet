@@ -1,6 +1,6 @@
 ﻿using HireManagment.Application.DTOs.Admin;
-using HireManagment.Application.Features.Admin.Request.Commands;
-using HireManagment.Application.Features.Admin.Request.Queries;
+using HireManagment.Application.Features.Admins.Request.Commands;
+using HireManagment.Application.Features.Admins.Request.Queries;
 using HireManagment.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
