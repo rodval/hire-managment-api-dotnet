@@ -45,5 +45,27 @@ namespace HireManagment.API.Controllers
             var response = await _mediator.Send(command);
             return Ok(response);
         }
+
+        [HttpPut("{employeeId}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> Put([FromBody] UpdateCompanyEmployeeDto employee)
+        {
+            var command = new UpdateCompanyEmployeeCommand { Employee = employee };
+            await _mediator.Send(command);
+            return NoContent();
+        }
+
+        [HttpDelete("{employeeId}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> Delete(int employeeId)
+        {
+            var command = new DeleteCompanyEmployeeCommand { Id = employeeId };
+            await _mediator.Send(command);
+            return NoContent();
+        }
     }
 }
