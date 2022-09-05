@@ -11,11 +11,11 @@ namespace HireManagment.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AdminController : Controller
+    public class AdminApiController : Controller
     {
         private readonly IMediator _mediator;
 
-        public AdminController(IMediator mediator)
+        public AdminApiController(IMediator mediator)
         {
             _mediator = mediator;
         }
@@ -51,6 +51,17 @@ namespace HireManagment.API.Controllers
         public async Task<ActionResult> Put([FromBody] AdminApiDto admin)
         {
             var command = new UpdateAdminCommand { AdminApi = admin };
+            await _mediator.Send(command);
+            return NoContent();
+        }
+
+        [HttpDelete("{adminId}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> Delete(int adminId)
+        {
+            var command = new DeleteAdminCommand { Id = adminId };
             await _mediator.Send(command);
             return NoContent();
         }

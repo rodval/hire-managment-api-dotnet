@@ -13,18 +13,18 @@ namespace HireManagment.Application.Features.Admin.Handlers.Queries
 {
     public class GetAdminRequestHandler : IRequestHandler<GetAdminRequest, AdminApiDto>
     {
-        private readonly IAdminRepository _adminRepository;
+        private readonly IAdminRepository _repository;
         private readonly IMapper _mapper;
 
-        public GetAdminRequestHandler(IAdminRepository adminRepository, IMapper mapper)
+        public GetAdminRequestHandler(IAdminRepository repository, IMapper mapper)
         {
-            _adminRepository = adminRepository;
+            _repository = repository;
             _mapper = mapper;
         }
 
         public async Task<AdminApiDto> Handle(GetAdminRequest request, CancellationToken cancellationToken)
         {
-            var admin = await _adminRepository.Get(request.AdminId);
+            var admin = await _repository.Get(request.AdminId);
             return _mapper.Map<AdminApiDto>(admin);
         }
     }
