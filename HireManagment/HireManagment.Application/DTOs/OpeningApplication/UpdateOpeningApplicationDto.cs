@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.DTOs.OpeningApplication
 {
-    internal class UpdateOpeningApplicationDto : BaseDto
+    public class UpdateOpeningApplicationDto : BaseDto
     {
         public ApplicationStatusType Status { get; set; }
     }
