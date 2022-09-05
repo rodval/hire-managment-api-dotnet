@@ -52,7 +52,12 @@ namespace HireManagment.Application.Profiles
             CreateMap<Candidate, UpdateCandidateDto>().ReverseMap();
             #endregion Candidate Mappings
 
+            #region Candidate Mappings
             CreateMap<OpeningApplication, OpeningApplicationDto>().ReverseMap();
-        } 
+            CreateMap<OpeningApplication, OpeningApplicationListDto>().ReverseMap();
+            CreateMap<OpeningApplication, CreateOpeningApplicationDto>().ReverseMap();
+            CreateMap<OpeningApplication, UpdateOpeningApplicationDto>().ReverseMap();
+            #endregion Candidate Mappings
+        }
     }
 }
