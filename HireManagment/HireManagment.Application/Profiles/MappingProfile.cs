@@ -31,8 +31,11 @@ namespace HireManagment.Application.Profiles
             CreateMap<Company, UpdateCompanyDto>().ReverseMap();
             #endregion Company Mappings
 
-            CreateMap<Candidate, CandidateDto>().ReverseMap();
+            #region CompanyEmployee Mappings
             CreateMap<CompanyEmployee, CompanyEmployeeDto>().ReverseMap();
+            #endregion CompanyEmployee Mappings
+
+            CreateMap<Candidate, CandidateDto>().ReverseMap();
             CreateMap<Opening, OpeningDto>().ReverseMap();
             CreateMap<OpeningApplication, OpeningApplicationDto>().ReverseMap();
         } 
