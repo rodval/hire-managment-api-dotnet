@@ -15,6 +15,6 @@ namespace HireManagment.Application.DTOs.Company
         public string? Address { get; set; }
 
         public int AdminId { get; set; }
-        public virtual AdminDto? Admin { get; set; }
+        public virtual AdminApiDto? Admin { get; set; }
     }
 }

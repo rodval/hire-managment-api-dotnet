@@ -19,7 +19,15 @@ namespace HireManagment.Persistence
                options.UseSqlServer(
                    configuration.GetConnectionString("HireManagementConnectionString")));
 
+            services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
+
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped(typeof(IAdminRepository), typeof(AdminRepository));
+            services.AddScoped(typeof(ICompanyRepository), typeof(CompanyRepository));
+            services.AddScoped(typeof(ICompanyEmployeeRepository), typeof(CompanyEmployeeRepository));
+            services.AddScoped(typeof(IOpeningRepository), typeof(OpeningRepository));
+            services.AddScoped(typeof(ICandidateRepository), typeof(CandidateRepository));
+            services.AddScoped(typeof(IOpeningApplicationRepository), typeof(OpeningApplicationRepository));
 
             return services;
         }

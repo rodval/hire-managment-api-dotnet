@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.DTOs.Admin
 {
-    public class AdminDto : PersonDto
+    public class AdminApiDto : PersonDto
     {
     }
 }

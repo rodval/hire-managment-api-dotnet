@@ -15,7 +15,12 @@ namespace HireManagment.Persistence
         { 
         }
 
-        public DbSet<Admin>? CompanyAdmins { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(HireManagmentDbContext).Assembly);
+        }
+
+        public DbSet<AdminApi>? Admins { get; set; }
         public DbSet<Company>? Companies { get; set; }
         public DbSet<CompanyEmployee>? CompanyEmployees { get; set; }
         public DbSet<Opening>? Openings { get; set; }

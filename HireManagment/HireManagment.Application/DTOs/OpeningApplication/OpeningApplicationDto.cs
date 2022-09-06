@@ -1,4 +1,5 @@
 ﻿using HireManagment.Application.DTOs.Candidate;
+using HireManagment.Application.DTOs.Common;
 using HireManagment.Application.DTOs.CompanyEmployee;
 using HireManagment.Domain.Utilities;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.DTOs.OpeningApplication
 {
-    public class OpeningApplicationDto
+    public class OpeningApplicationDto : BaseDto
     {
         public DateTime DateApplication { get; set; }
         public ApplicationStatusType Status { get; set; }
