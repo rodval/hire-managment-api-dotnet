@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Domain
 {
-    public class CandidateStatus : BaseDomainEntity
+    public class AdminApi : Person
     {
-        public string? Status { get; set; }
     }
 }

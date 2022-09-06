@@ -1,19 +1,18 @@
-﻿using HireManagment.Domain.Common;
+﻿using HireManagment.Application.DTOs.Admin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HireManagment.Domain
+namespace HireManagment.Application.DTOs.Company
 {
-    public class Company : BaseDomainEntity
+    public class CreateCompanyDto
     {
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Address { get; set; }
 
         public int AdminId { get; set; }
-        public virtual AdminApi? Admin { get; set; }
     }
 }
