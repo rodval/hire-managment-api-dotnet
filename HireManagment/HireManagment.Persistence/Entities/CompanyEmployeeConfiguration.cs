@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HireManagment.Domain.Utilities;
+using Microsoft.AspNetCore.Identity;
 
 namespace HireManagment.Persistence.Entities
 {
@@ -14,6 +15,8 @@ namespace HireManagment.Persistence.Entities
     {
         public void Configure(EntityTypeBuilder<CompanyEmployee> builder)
         {
+            var hasher = new PasswordHasher<CompanyEmployee>();
+
             builder.HasData(
                 new CompanyEmployee
                 {
@@ -22,6 +25,7 @@ namespace HireManagment.Persistence.Entities
                     LastName = "Walas",
                     Age = 32,
                     Email = "rodrigovalladares1@gmail.com",
+                    Password = hasher.HashPassword(null, "P@ssword1"),
                     EmployeeType = EmployeeType.CompanyAdmin,
                     CompanyId = 1
                 },
@@ -32,6 +36,7 @@ namespace HireManagment.Persistence.Entities
                     LastName = "Bane",
                     Age = 32,
                     Email = "rodrigovalladares1@gmail.com",
+                    Password = hasher.HashPassword(null, "P@ssword1"),
                     EmployeeType = EmployeeType.Employee,
                     CompanyId = 1
                 },
@@ -42,6 +47,7 @@ namespace HireManagment.Persistence.Entities
                     LastName = "Stevens",
                     Age = 32,
                     Email = "rodrigovalladares1@gmail.com",
+                    Password = hasher.HashPassword(null, "P@ssword1"),
                     EmployeeType = EmployeeType.CompanyAdmin,
                     CompanyId = 2
                 },
@@ -52,6 +58,7 @@ namespace HireManagment.Persistence.Entities
                     LastName = "Elric",
                     Age = 32,
                     Email = "rodrigovalladares1@gmail.com",
+                    Password = hasher.HashPassword(null, "P@ssword1"),
                     EmployeeType = EmployeeType.CompanyAdmin,
                     CompanyId = 3
                 }

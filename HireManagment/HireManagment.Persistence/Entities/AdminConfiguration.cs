@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +14,8 @@ namespace HireManagment.Domain.Entities
     {
         public void Configure(EntityTypeBuilder<AdminApi> builder)
         {
+            var hasher = new PasswordHasher<AdminApi>();
+
             builder.HasData(
                 new AdminApi
                 {
@@ -19,7 +23,8 @@ namespace HireManagment.Domain.Entities
                     FirstName = "Robert",
                     LastName = "Wade",
                     Age = 32,
-                    Email = "rodrigovalladares1@gmail.com"
+                    Email = "rodrigovalladares1@gmail.com",
+                    Password = hasher.HashPassword(null, "P@ssword1")
                 },
                 new AdminApi
                 {
@@ -27,7 +32,8 @@ namespace HireManagment.Domain.Entities
                     FirstName = "Felix",
                     LastName = "Feliz",
                     Age= 32,
-                    Email = "rodrigovalladares1@gmail.com"
+                    Email = "rodrigovalladares1@gmail.com",
+                    Password = hasher.HashPassword(null, "P@ssword1")
                 }
             );
         }
