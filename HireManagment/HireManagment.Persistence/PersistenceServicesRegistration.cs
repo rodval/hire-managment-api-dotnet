@@ -1,8 +1,15 @@
-﻿using HireManagment.Application.Contracts.Persistence;
+﻿using HireManagment.Application.Contracts.Identity;
+using HireManagment.Application.Contracts.Persistence;
+using HireManagment.Application.Models.Identity;
+using HireManagment.Domain;
 using HireManagment.Persistence.Repositories;
+using HireManagment.Persistence.Service;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +22,16 @@ namespace HireManagment.Persistence
     {
         public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
+            services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
+
             services.AddDbContext<HireManagmentDbContext>(options =>
                options.UseSqlServer(
                    configuration.GetConnectionString("HireManagementConnectionString")));
+
+            services.AddIdentity<AdminApi, IdentityRole>()
+                .AddEntityFrameworkStores<HireManagmentDbContext>().AddDefaultTokenProviders();
+
+            services.AddTransient<IAuthService, AdminApiAuthService>();
 
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
 
