@@ -20,21 +20,21 @@ namespace HireManagment.Persistence.Entities
             builder.HasData(
                 new Candidate
                 {
-                    Id = 1,
+                    Id = "1",
                     FirstName = "Omar",
                     LastName = "Strange",
                     Age = 32,
                     Email = "rodrigovalladares1@gmail.com",
-                    Password = hasher.HashPassword(null, "P@ssword1")
+                    PasswordHash = hasher.HashPassword(null, "P@ssword1")
                 },
                 new Candidate
                 {
-                    Id = 2,
+                    Id = "2",
                     FirstName = "Ruben",
                     LastName = "Dario",
                     Age = 32,
                     Email = "rodrigovalladares1@gmail.com",
-                    Password = hasher.HashPassword(null, "P@ssword1")
+                    PasswordHash = hasher.HashPassword(null, "P@ssword1")
                 }
             );
         }

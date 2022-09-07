@@ -29,7 +29,7 @@ namespace HireManagment.API.Controllers
         }
 
         [HttpGet("{candidateId}")]
-        public async Task<ActionResult<CandidateDto>> Get(int candidateId)
+        public async Task<ActionResult<CandidateDto>> Get(string candidateId)
         {
             var admin = await _mediator.Send(new GetCandidateRequest { CandidateId = candidateId });
             return Ok(admin);
@@ -60,7 +60,7 @@ namespace HireManagment.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult> Delete(int candidateId)
+        public async Task<ActionResult> Delete(string candidateId)
         {
             var command = new DeleteAdminCommand { Id = candidateId };
             await _mediator.Send(command);

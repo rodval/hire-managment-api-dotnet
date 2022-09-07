@@ -10,6 +10,6 @@ namespace HireManagment.Application.Features.Admins.Request.Queries
 {
     public class GetAdminRequest : IRequest<AdminApiDto>
     {
-        public int AdminId { get; set; }
+        public string AdminId { get; set; }
     }
 }

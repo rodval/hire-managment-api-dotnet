@@ -11,6 +11,6 @@ namespace HireManagment.Application.Features.Candidates.Request.Queries
 {
     public class GetCandidateRequest : IRequest<CandidateDto>
     {
-        public int CandidateId { get; set; }
+        public string CandidateId { get; set; }
     }
 }

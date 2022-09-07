@@ -19,21 +19,25 @@ namespace HireManagment.Domain.Entities
             builder.HasData(
                 new AdminApi
                 {
-                    Id = 1,
+                    Id = "1",
                     FirstName = "Robert",
                     LastName = "Wade",
                     Age = 32,
                     Email = "rodrigovalladares1@gmail.com",
-                    Password = hasher.HashPassword(null, "P@ssword1")
+                    NormalizedEmail = "RODRIGOVALLADARES1@GMAIL.COM",
+                    PasswordHash = hasher.HashPassword(null, "P@ssword1"),
+                    EmailConfirmed = true
                 },
                 new AdminApi
                 {
-                    Id = 2,
+                    Id = "2",
                     FirstName = "Felix",
                     LastName = "Feliz",
                     Age= 32,
-                    Email = "rodrigovalladares1@gmail.com",
-                    Password = hasher.HashPassword(null, "P@ssword1")
+                    Email = "rodrigovalladares@gmail.com",
+                    NormalizedEmail = "RODRIGOVALLADARES@GMAIL.COM",
+                    PasswordHash = hasher.HashPassword(null, "P@ssword2"),
+                    EmailConfirmed = true
                 }
             );
         }

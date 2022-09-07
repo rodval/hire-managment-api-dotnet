@@ -20,45 +20,45 @@ namespace HireManagment.Persistence.Entities
             builder.HasData(
                 new CompanyEmployee
                 {
-                    Id = 1,
+                    Id = "1",
                     FirstName = "Henry",
                     LastName = "Walas",
                     Age = 32,
                     Email = "rodrigovalladares1@gmail.com",
-                    Password = hasher.HashPassword(null, "P@ssword1"),
+                    PasswordHash = hasher.HashPassword(null, "P@ssword1"),
                     EmployeeType = EmployeeType.CompanyAdmin,
                     CompanyId = 1
                 },
                 new CompanyEmployee
                 {
-                    Id = 2,
+                    Id = "2",
                     FirstName = "Brook",
                     LastName = "Bane",
                     Age = 32,
                     Email = "rodrigovalladares1@gmail.com",
-                    Password = hasher.HashPassword(null, "P@ssword1"),
+                    PasswordHash = hasher.HashPassword(null, "P@ssword1"),
                     EmployeeType = EmployeeType.Employee,
                     CompanyId = 1
                 },
                 new CompanyEmployee
                 {
-                    Id = 3,
+                    Id = "3",
                     FirstName = "Harry",
                     LastName = "Stevens",
                     Age = 32,
                     Email = "rodrigovalladares1@gmail.com",
-                    Password = hasher.HashPassword(null, "P@ssword1"),
+                    PasswordHash = hasher.HashPassword(null, "P@ssword1"),
                     EmployeeType = EmployeeType.CompanyAdmin,
                     CompanyId = 2
                 },
                 new CompanyEmployee
                 {
-                    Id = 4,
+                    Id = "4",
                     FirstName = "Alfonse",
                     LastName = "Elric",
                     Age = 32,
                     Email = "rodrigovalladares1@gmail.com",
-                    Password = hasher.HashPassword(null, "P@ssword1"),
+                    PasswordHash = hasher.HashPassword(null, "P@ssword1"),
                     EmployeeType = EmployeeType.CompanyAdmin,
                     CompanyId = 3
                 }

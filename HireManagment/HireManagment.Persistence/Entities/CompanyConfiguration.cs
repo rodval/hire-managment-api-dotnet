@@ -20,7 +20,7 @@ namespace HireManagment.Persistence.Entities
                     Name = "Naughty Dog",
                     Description = "company 1",
                     Address = "address",
-                    AdminId = 1
+                    AdminId = "1"
                 },
                 new Company
                 {
@@ -28,7 +28,7 @@ namespace HireManagment.Persistence.Entities
                     Name = "Riot Games",
                     Description = "company 2",
                     Address = "address",
-                    AdminId = 1
+                    AdminId = "2"
                 },
                 new Company
                 {
@@ -36,7 +36,7 @@ namespace HireManagment.Persistence.Entities
                     Name = "Miami Heat",
                     Description = "company 3",
                     Address = "address",
-                    AdminId = 2
+                    AdminId = "2"
                 }
             );
         }

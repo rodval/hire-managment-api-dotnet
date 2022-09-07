@@ -34,7 +34,7 @@ namespace HireManagment.Application.Features.Candidates.Handlers.Commands
 
             response.Success = true;
             response.Message = "Creation Successful";
-            response.Id = candidate.Id;
+            response.Id = Int32.Parse(candidate.Id);
 
             return response;
         }
