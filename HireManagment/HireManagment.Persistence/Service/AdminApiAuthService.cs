@@ -3,6 +3,7 @@ using HireManagment.Application.Contracts.Identity;
 using HireManagment.Application.Models.Identity;
 using HireManagment.Domain;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -17,33 +18,23 @@ namespace HireManagment.Persistence.Service
 {
     public class AdminApiAuthService : IAuthService
     {
-        private readonly UserManager<AdminApi> _userManager;
-        private readonly SignInManager<AdminApi> _signInManager;
+        private readonly HireManagmentDbContext _dbContext;
         private readonly JwtSettings _jwtSettings;
 
-        public AdminApiAuthService(UserManager<AdminApi> userManager,
-            IOptions<JwtSettings> jwtSettings,
-            SignInManager<AdminApi> signInManager)
+        public AdminApiAuthService(HireManagmentDbContext dbContext, IOptions<JwtSettings> jwtSettings)
         {
-            _userManager = userManager;
+            _dbContext = dbContext;
             _jwtSettings = jwtSettings.Value;
-            _signInManager = signInManager;
         }
 
         public async Task<AuthResponse> Login(AuthRequest request)
         {
-            var user = await _userManager.FindByEmailAsync(request.Email);
+            var hasher = new PasswordHasher<AdminApi>();
+            var user = await _dbContext.Admins.Where(a => a.Email == request.Email && a.PasswordHash == request.Password).FirstAsync();
 
             if (user == null)
             {
                 throw new Exception($"User with {request.Email} not found.");
-            }
-
-            var result = await _signInManager.PasswordSignInAsync(user.Email, request.Password, false, lockoutOnFailure: false);
-
-            if (!result.Succeeded)
-            {
-                throw new Exception($"Credentials for '{request.Email} aren't valid'.");
             }
 
             JwtSecurityToken jwtSecurityToken = await GenerateToken(user);
@@ -62,26 +53,17 @@ namespace HireManagment.Persistence.Service
 
         private async Task<JwtSecurityToken> GenerateToken(AdminApi user)
         {
-            var userClaims = await _userManager.GetClaimsAsync(user);
-            var roles = await _userManager.GetRolesAsync(user);
-
-            var roleClaims = new List<Claim>();
-
-            for (int i = 0; i < roles.Count; i++)
-            {
-                roleClaims.Add(new Claim(ClaimTypes.Role, roles[i]));
-            }
-
+            var userClaims = new List<Claim>();
+            userClaims.Add(new Claim(ClaimTypes.Role, "Administrator"));
+            
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Sub, user.FirstName),
-                new Claim(JwtRegisteredClaimNames.Sub, user.LastName),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
                 new Claim(CustomClaimTypes.Uid, user.Id)
             }
-            .Union(userClaims)
-            .Union(roleClaims);
+            .Union(userClaims);
 
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
@@ -92,6 +74,5 @@ namespace HireManagment.Persistence.Service
                 signingCredentials: signingCredentials);
             return jwtSecurityToken;
         }
-
     }
 }

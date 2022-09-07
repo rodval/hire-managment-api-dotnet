@@ -176,8 +176,8 @@ namespace HireManagment.Persistence.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Age", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, 32, "1f76d559-2687-49bc-9005-6e2779760be9", "rodrigovalladares1@gmail.com", true, "Robert", "Wade", false, null, "RODRIGOVALLADARES1@GMAIL.COM", null, "AQAAAAEAACcQAAAAEN97q9dEcZEDv936tnAmuAmQlaFlZfyZjNlpNhcpIklb4wLkZq3VyTctdJkmPvP8qQ==", null, false, "4b5c0945-ed4b-48f9-b0cc-aff93b5f1ae4", false, null },
-                    { "2", 0, 32, "512eab08-3a85-481a-9dac-fad5d81f0cc0", "rodrigovalladares@gmail.com", true, "Felix", "Feliz", false, null, "RODRIGOVALLADARES@GMAIL.COM", null, "AQAAAAEAACcQAAAAEA7VZu3mtXCt7woOgBsXk/GJ8/wUF7iUDX8kDWmYBzZNfvKQIRWouPy2ICoSwUWpcg==", null, false, "61f014af-ba87-4188-9bfb-480f3907894a", false, null }
+                    { "1", 0, 32, "bd0043b2-72fc-4dbd-927c-5d8d29f6650f", "rodrigovalladares1@gmail.com", true, "Robert", "Wade", false, null, "RODRIGOVALLADARES1@GMAIL.COM", null, "P@ssword1", null, false, "e1240412-5d10-4d15-9a0d-12e60d0ba6b5", false, null },
+                    { "2", 0, 32, "8c48ec46-6c47-4509-82e9-7b2f3a6c3664", "rodrigovalladares@gmail.com", true, "Felix", "Feliz", false, null, "RODRIGOVALLADARES@GMAIL.COM", null, "P@ssword2", null, false, "feaa3ad9-bef1-4f2f-b916-12aa9be0177d", false, null }
                 });
 
             migrationBuilder.InsertData(
@@ -185,8 +185,8 @@ namespace HireManagment.Persistence.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Age", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, 32, "f6f5f584-ad5d-4412-bb28-7abf1a91c64c", "rodrigovalladares1@gmail.com", false, "Omar", "Strange", false, null, null, null, "AQAAAAEAACcQAAAAEHbbemvGYxZBwMhYWURMAeuT4eYAjmuV1VfrpDbdC6ogalTgKhGOIwgWq6WUgMfSCA==", null, false, "2d2dde7a-c87c-413b-8749-5a4b42184ec0", false, null },
-                    { "2", 0, 32, "7bce37d2-fd72-4b5c-8c1c-2de9914807c7", "rodrigovalladares1@gmail.com", false, "Ruben", "Dario", false, null, null, null, "AQAAAAEAACcQAAAAEENbA9mcPykBAEh+OJOQ2LstU8rvzk/MNz9mKEYCtaG0Djw/UWKiPfRnZkwzYNCWjw==", null, false, "7b6bd382-6d17-47d4-b71b-a2da193ad13f", false, null }
+                    { "1", 0, 32, "fcafee69-f0df-4cf2-8df0-bbfffd45c86a", "rodrigovalladares1@gmail.com", false, "Omar", "Strange", false, null, null, null, "AQAAAAEAACcQAAAAEF1NhaNf9Hxqmm5dvakedkZRo7siYHM5CqVDWsHCc9ZlxIW/HIcriADVzAi0ltf7Zw==", null, false, "7278de99-f87e-43fd-918d-f16d41152953", false, null },
+                    { "2", 0, 32, "05d325f1-b2f3-45d7-8955-6fcc84a11908", "rodrigovalladares1@gmail.com", false, "Ruben", "Dario", false, null, null, null, "AQAAAAEAACcQAAAAEK8tWdUnK0mdq9FtmcNCTS4+EEuay0avZ+UYz6KcJIdJlZ4NUplily2QWVihcGwyIA==", null, false, "3dbfec05-39b2-483d-aa09-c66f9c010558", false, null }
                 });
 
             migrationBuilder.InsertData(
@@ -209,21 +209,21 @@ namespace HireManagment.Persistence.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Age", "CompanyId", "ConcurrencyStamp", "Email", "EmailConfirmed", "EmployeeType", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, 32, 1, "4ab45ec9-ad90-41c7-8fc3-85193824e097", "rodrigovalladares1@gmail.com", false, 1, "Henry", "Walas", false, null, null, null, "AQAAAAEAACcQAAAAENQQMLDzADpifLoJc+Pi0Rgw20xjSL8SQoHUKA77szYLqdai/2OUrB2UuiJHBtdwYg==", null, false, "63e00e9a-e074-4f6b-917a-1477eb0d927f", false, null },
-                    { "2", 0, 32, 1, "2b115c83-89c8-448b-aec1-65eb3c864fb0", "rodrigovalladares1@gmail.com", false, 2, "Brook", "Bane", false, null, null, null, "AQAAAAEAACcQAAAAEN1ErhleWe1TEpiyCBYP2NGsPJK2onlrXTqSrGVCqywNy1748KlFx6SGhUyuTjZuzA==", null, false, "a817960f-0cab-448a-89bf-7f142c6cdc77", false, null },
-                    { "3", 0, 32, 2, "c22532f9-ceb7-4591-8bcf-c80ae20bb27b", "rodrigovalladares1@gmail.com", false, 1, "Harry", "Stevens", false, null, null, null, "AQAAAAEAACcQAAAAEJJ3QkqnVkkr61a4m5pmLZP9o+yu3k78Egc4yxQvCPtJYWRvPLie+MrXP27Ut04WfQ==", null, false, "e84df656-0880-4c4b-b68c-d52603070305", false, null },
-                    { "4", 0, 32, 3, "e841f60f-2680-4944-b9d2-02ca05ef9b06", "rodrigovalladares1@gmail.com", false, 1, "Alfonse", "Elric", false, null, null, null, "AQAAAAEAACcQAAAAEA7W3Kw0zpMFlLLPOMNOgQT9AmFzWNT9VW9q5R9NDifk3NIxXdHm/n+n87TPI7Xh4w==", null, false, "c133f61d-ce8a-467e-b51a-eb085905be98", false, null }
+                    { "1", 0, 32, 1, "47406352-21b8-4428-b275-ce7e10be08d2", "rodrigovalladares1@gmail.com", false, 1, "Henry", "Walas", false, null, null, null, "AQAAAAEAACcQAAAAEE33HJJmO1XHufC3DShs63JkU4AcEqt1NGKnFPzvRY9vniAxBEzab1L49aC48XCTYQ==", null, false, "79a290f6-b20d-478b-963d-e38b2d051cda", false, null },
+                    { "2", 0, 32, 1, "5acdec28-5681-4409-9ab3-731a5bf4b36b", "rodrigovalladares1@gmail.com", false, 2, "Brook", "Bane", false, null, null, null, "AQAAAAEAACcQAAAAEHQ/nFvtAhmMUnV68C9sXYVRXTUHn7NmP+mAw8/WBZFGu7SnaYT5jk0MOqoIU3o87A==", null, false, "3cc5a908-924b-46bc-9fb8-fee4537e1834", false, null },
+                    { "3", 0, 32, 2, "16af50ab-d3e2-4eba-9116-7c3a9c81f7bc", "rodrigovalladares1@gmail.com", false, 1, "Harry", "Stevens", false, null, null, null, "AQAAAAEAACcQAAAAEG5bEpBjwgaXiRWgc5UBJr3mYHxc03qWcs3+upD1c/qJN8tyixNdbwA37AuSnkL3GA==", null, false, "34f89b8e-3313-408d-8574-189ecc084dae", false, null },
+                    { "4", 0, 32, 3, "d5831544-ce92-412d-aa55-d62bd1a15319", "rodrigovalladares1@gmail.com", false, 1, "Alfonse", "Elric", false, null, null, null, "AQAAAAEAACcQAAAAENr8FE3CyfB0L9OBkC4UXJHwwPZCeZ4xTXWXzZ0dtvQORsW5ue3tg24PaR4w5lp15Q==", null, false, "04dfab9a-a628-46e5-b8fb-06450d243be6", false, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "Openings",
                 columns: new[] { "Id", "CompanyEmployeeId", "DateCreated", "DateExpiration", "Description", "OpeningType", "Title" },
-                values: new object[] { 1, "1", new DateTime(2022, 9, 7, 11, 50, 8, 63, DateTimeKind.Local).AddTicks(4608), new DateTime(2022, 9, 17, 11, 50, 8, 63, DateTimeKind.Local).AddTicks(4625), "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.", 1, "New Vancancy" });
+                values: new object[] { 1, "1", new DateTime(2022, 9, 7, 13, 11, 38, 644, DateTimeKind.Local).AddTicks(6457), new DateTime(2022, 9, 17, 13, 11, 38, 644, DateTimeKind.Local).AddTicks(6471), "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.", 1, "New Vancancy" });
 
             migrationBuilder.InsertData(
                 table: "Openings",
                 columns: new[] { "Id", "CompanyEmployeeId", "DateCreated", "DateExpiration", "Description", "OpeningType", "Title" },
-                values: new object[] { 2, "3", new DateTime(2022, 9, 7, 11, 50, 8, 63, DateTimeKind.Local).AddTicks(4630), new DateTime(2022, 10, 2, 11, 50, 8, 63, DateTimeKind.Local).AddTicks(4631), "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.", 1, "New Vancancy 2" });
+                values: new object[] { 2, "3", new DateTime(2022, 9, 7, 13, 11, 38, 644, DateTimeKind.Local).AddTicks(6476), new DateTime(2022, 10, 2, 13, 11, 38, 644, DateTimeKind.Local).AddTicks(6476), "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.", 1, "New Vancancy 2" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Companies_AdminId",

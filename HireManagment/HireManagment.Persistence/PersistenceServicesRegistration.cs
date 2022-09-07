@@ -31,8 +31,6 @@ namespace HireManagment.Persistence
             services.AddIdentity<AdminApi, IdentityRole>()
                 .AddEntityFrameworkStores<HireManagmentDbContext>().AddDefaultTokenProviders();
 
-            services.AddTransient<IAuthService, AdminApiAuthService>();
-
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
@@ -42,6 +40,8 @@ namespace HireManagment.Persistence
             services.AddScoped(typeof(IOpeningRepository), typeof(OpeningRepository));
             services.AddScoped(typeof(ICandidateRepository), typeof(CandidateRepository));
             services.AddScoped(typeof(IOpeningApplicationRepository), typeof(OpeningApplicationRepository));
+
+            services.AddScoped(typeof(IAuthService), typeof(AdminApiAuthService));
 
             return services;
         }
