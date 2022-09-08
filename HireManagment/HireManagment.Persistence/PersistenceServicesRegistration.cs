@@ -43,6 +43,19 @@ namespace HireManagment.Persistence
 
             services.AddScoped(typeof(IAuthService), typeof(AdminApiAuthService));
 
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
+                        .GetBytes(configuration.GetSection("JwtSettings:Key").Value)),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
             return services;
         }
     }

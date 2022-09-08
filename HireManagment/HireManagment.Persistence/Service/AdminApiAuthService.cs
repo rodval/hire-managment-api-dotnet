@@ -29,10 +29,10 @@ namespace HireManagment.Persistence.Service
 
         public async Task<AuthResponse> Login(AuthRequest request)
         {
-            var hasher = new PasswordHasher<AdminApi>();
-            var user = await _dbContext.Admins.Where(a => a.Email == request.Email && a.PasswordHash == request.Password).FirstAsync();
+            var user = await _dbContext.Admins.Where(a => a.Email == request.Email).FirstAsync();
+            var hasherPassword = new PasswordHasher<AdminApi>().VerifyHashedPassword(null, user.PasswordHash, request.Password);
 
-            if (user == null)
+            if (user == null || hasherPassword == PasswordVerificationResult.Failed)
             {
                 throw new Exception($"User with {request.Email} not found.");
             }

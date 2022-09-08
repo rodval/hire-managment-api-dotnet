@@ -35,8 +35,8 @@ namespace HireManagment.Persistence.Entities
                     FirstName = "Brook",
                     LastName = "Bane",
                     Age = 32,
-                    Email = "rodrigovalladares1@gmail.com",
-                    PasswordHash = hasher.HashPassword(null, "P@ssword1"),
+                    Email = "employee2@gmail.com",
+                    PasswordHash = hasher.HashPassword(null, "P@ssword3"),
                     EmployeeType = EmployeeType.Employee,
                     CompanyId = 1
                 },
@@ -46,8 +46,8 @@ namespace HireManagment.Persistence.Entities
                     FirstName = "Harry",
                     LastName = "Stevens",
                     Age = 32,
-                    Email = "rodrigovalladares1@gmail.com",
-                    PasswordHash = hasher.HashPassword(null, "P@ssword1"),
+                    Email = "employee3@gmail.com",
+                    PasswordHash = hasher.HashPassword(null, "P@ssword3"),
                     EmployeeType = EmployeeType.CompanyAdmin,
                     CompanyId = 2
                 },
@@ -57,8 +57,8 @@ namespace HireManagment.Persistence.Entities
                     FirstName = "Alfonse",
                     LastName = "Elric",
                     Age = 32,
-                    Email = "rodrigovalladares1@gmail.com",
-                    PasswordHash = hasher.HashPassword(null, "P@ssword1"),
+                    Email = "employee4@gmail.com",
+                    PasswordHash = hasher.HashPassword(null, "P@ssword4"),
                     EmployeeType = EmployeeType.CompanyAdmin,
                     CompanyId = 3
                 }

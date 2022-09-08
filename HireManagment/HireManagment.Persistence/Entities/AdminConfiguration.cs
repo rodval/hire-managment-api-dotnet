@@ -24,9 +24,7 @@ namespace HireManagment.Domain.Entities
                     LastName = "Wade",
                     Age = 32,
                     Email = "rodrigovalladares1@gmail.com",
-                    NormalizedEmail = "RODRIGOVALLADARES1@GMAIL.COM",
-                    PasswordHash = "P@ssword1",
-                    EmailConfirmed = true
+                    PasswordHash = hasher.HashPassword(null, "P@ssword1")
                 },
                 new AdminApi
                 {
@@ -35,9 +33,7 @@ namespace HireManagment.Domain.Entities
                     LastName = "Feliz",
                     Age= 32,
                     Email = "rodrigovalladares@gmail.com",
-                    NormalizedEmail = "RODRIGOVALLADARES@GMAIL.COM",
-                    PasswordHash = "P@ssword2",
-                    EmailConfirmed = true
+                    PasswordHash = hasher.HashPassword(null, "P@ssword2")
                 }
             );
         }

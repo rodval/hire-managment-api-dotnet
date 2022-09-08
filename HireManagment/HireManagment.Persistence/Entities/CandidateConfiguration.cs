@@ -24,7 +24,7 @@ namespace HireManagment.Persistence.Entities
                     FirstName = "Omar",
                     LastName = "Strange",
                     Age = 32,
-                    Email = "rodrigovalladares1@gmail.com",
+                    Email = "rodrigovalladare1@gmail.com",
                     PasswordHash = hasher.HashPassword(null, "P@ssword1")
                 },
                 new Candidate
@@ -33,8 +33,8 @@ namespace HireManagment.Persistence.Entities
                     FirstName = "Ruben",
                     LastName = "Dario",
                     Age = 32,
-                    Email = "rodrigovalladares1@gmail.com",
-                    PasswordHash = hasher.HashPassword(null, "P@ssword1")
+                    Email = "candidate2@gmail.com",
+                    PasswordHash = hasher.HashPassword(null, "P@ssword2")
                 }
             );
         }
