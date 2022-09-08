@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -41,18 +42,21 @@ namespace HireManagment.Persistence
             services.AddScoped(typeof(ICandidateRepository), typeof(CandidateRepository));
             services.AddScoped(typeof(IOpeningApplicationRepository), typeof(OpeningApplicationRepository));
 
-            services.AddScoped(typeof(IAuthService), typeof(AdminApiAuthService));
+            services.AddTransient(typeof(IAuthService), typeof(AdminApiAuthService));
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            services.AddAuthentication(options => {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
             .AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
-                        .GetBytes(configuration.GetSection("JwtSettings:Key").Value)),
                     ValidateIssuer = false,
-                    ValidateAudience = false
+                    ValidateAudience = false,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
+                        .GetBytes(configuration.GetSection("JwtSettings:Key").Value))
                 };
             });
 
