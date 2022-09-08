@@ -53,17 +53,14 @@ namespace HireManagment.Persistence.Service
 
         private async Task<JwtSecurityToken> GenerateToken(AdminApi user)
         {
-            var userClaims = new List<Claim>();
-            userClaims.Add(new Claim(ClaimTypes.Role, "Administrator"));
-            
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.FirstName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                new Claim(CustomClaimTypes.Uid, user.Id)
-            }
-            .Union(userClaims);
+                new Claim(CustomClaimTypes.Uid, user.Id),
+                new Claim(ClaimTypes.Role, "Administrator")
+            };
 
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
