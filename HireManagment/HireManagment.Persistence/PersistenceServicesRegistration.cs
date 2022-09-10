@@ -44,9 +44,10 @@ namespace HireManagment.Persistence
             services.AddScoped(typeof(IOpeningApplicationRepository), typeof(OpeningApplicationRepository));
 
             services.AddTransient(typeof(ICandidateAuthService), typeof(CandidateAuthService));
-            services.AddTransient(typeof(IAdminApiAuthService), typeof(AdminApiAuthService));
             services.AddTransient(typeof(ICompanyEmployeeAuthService), typeof(CompanyEmployeeAuthService));
-
+            
+            services.AddTransient(typeof(IAdminApiAuthService), typeof(AdminApiAuthService));
+            
             services.AddAuthentication(options => {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;

@@ -25,7 +25,7 @@ namespace HireManagment.Persistence.Service
         public override async Task<AuthResponse> Login(AuthRequest request)
         {
             var user = await _dbContext.CompanyEmployees.Where(a => a.Email == request.Email).FirstAsync();
-            var hasherPassword = new PasswordHasher<AdminApi>().VerifyHashedPassword(null, user.PasswordHash, request.Password);
+            var hasherPassword = new PasswordHasher<CompanyEmployee>().VerifyHashedPassword(null, user.PasswordHash, request.Password);
 
             if (user == null || hasherPassword == PasswordVerificationResult.Failed)
             {
@@ -38,7 +38,7 @@ namespace HireManagment.Persistence.Service
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = request.Email,
-                Role = "Administrator"
+                Role = user.EmployeeType.ToString()
             });
 
             AuthResponse response = new AuthResponse

@@ -15,6 +15,7 @@ namespace HireManagment.Application.DTOs.CompanyEmployee
         public int? Age { get; set; }
         public string? Email { get; set; }
         public EmployeeType EmployeeType { get; set; }
+        public string? Password { get; set; }
 
         public int CompanyId { get; set; }
     }

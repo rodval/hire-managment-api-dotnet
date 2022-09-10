@@ -20,7 +20,7 @@ namespace HireManagment.API.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Candidate")]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
