@@ -8,17 +8,33 @@ namespace HireManagment.API.Controllers
     [ApiController]
     public class AccountController : Controller
     {
-        private readonly IAuthService _authenticationService;
+        private readonly IAdminApiAuthService _adminApiAuthService;
+        private readonly ICandidateAuthService _candidateAuthService;
+        private readonly ICompanyEmployeeAuthService _companyEmployeeAuthService;
 
-        public AccountController(IAuthService authenticationService)
+        public AccountController(IAdminApiAuthService adminApiAuthService, ICandidateAuthService candidateAuthService, ICompanyEmployeeAuthService companyEmployeeAuthService)
         {
-            _authenticationService = authenticationService;
+            _adminApiAuthService = adminApiAuthService;
+            _candidateAuthService = candidateAuthService;
+            _companyEmployeeAuthService = companyEmployeeAuthService;
         }
 
-        [HttpPost("login")]
-        public async Task<ActionResult<AuthResponse>> Login(AuthRequest request)
+        [HttpPost("admin/login")]
+        public async Task<ActionResult<AuthResponse>> LoginAdmin(AuthRequest request)
         {
-            return Ok(await _authenticationService.Login(request));
+            return Ok(await _adminApiAuthService.Login(request));
+        }
+
+        [HttpPost("employe/login")]
+        public async Task<ActionResult<AuthResponse>> LoginEmployee(AuthRequest request)
+        {
+            return Ok(await _companyEmployeeAuthService.Login(request));
+        }
+
+        [HttpPost("candidate/login")]
+        public async Task<ActionResult<AuthResponse>> LoginCandidate(AuthRequest request)
+        {
+            return Ok(await _candidateAuthService.Login(request));
         }
     }
 }

@@ -2,6 +2,7 @@
 using HireManagment.Application.Contracts.Persistence;
 using HireManagment.Application.Models.Identity;
 using HireManagment.Domain;
+using HireManagment.Domain.Common;
 using HireManagment.Persistence.Repositories;
 using HireManagment.Persistence.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -29,7 +30,7 @@ namespace HireManagment.Persistence
                options.UseSqlServer(
                    configuration.GetConnectionString("HireManagementConnectionString")));
 
-            services.AddIdentity<AdminApi, IdentityRole>()
+            services.AddIdentity<Person, IdentityRole>()
                 .AddEntityFrameworkStores<HireManagmentDbContext>().AddDefaultTokenProviders();
 
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
@@ -42,7 +43,9 @@ namespace HireManagment.Persistence
             services.AddScoped(typeof(ICandidateRepository), typeof(CandidateRepository));
             services.AddScoped(typeof(IOpeningApplicationRepository), typeof(OpeningApplicationRepository));
 
-            services.AddTransient(typeof(IAuthService), typeof(AdminApiAuthService));
+            services.AddTransient(typeof(ICandidateAuthService), typeof(CandidateAuthService));
+            services.AddTransient(typeof(IAdminApiAuthService), typeof(AdminApiAuthService));
+            services.AddTransient(typeof(ICompanyEmployeeAuthService), typeof(CompanyEmployeeAuthService));
 
             services.AddAuthentication(options => {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
