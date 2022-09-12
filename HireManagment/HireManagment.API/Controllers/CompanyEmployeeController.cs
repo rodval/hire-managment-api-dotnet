@@ -15,7 +15,6 @@ namespace HireManagment.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Administrator")]
     public class CompanyEmployeeController : Controller
     {
         private readonly IMediator _mediator;
@@ -26,6 +25,7 @@ namespace HireManagment.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult<List<CompanyEmployeeListDto>>> Get()
         {
             var employee = await _mediator.Send(new GetCompanyEmployeeListRequest());
@@ -33,7 +33,7 @@ namespace HireManagment.API.Controllers
         }
 
         [HttpGet("{employeeId}")]
-        [Authorize(Roles = "CompanyAdmin")]
+        [Authorize(Roles = "Administrator,CompanyAdmin,Employee")]
         public async Task<ActionResult<CompanyEmployeeDto>> Get(string employeeId)
         {
             var employee = await _mediator.Send(new GetCompanyEmployeeRequest { CompanyEmployeeId = employeeId });
@@ -43,6 +43,7 @@ namespace HireManagment.API.Controllers
         [HttpPost]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult<BaseCommandResponses>> Post([FromBody] CreateCompanyEmployeeDto employee)
         {
             var command = new CreateCompanyEmployeeCommand { CreateEmployee = employee };
@@ -54,8 +55,7 @@ namespace HireManagment.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        [Authorize(Roles = "CompanyAdmin")]
-        [Authorize(Roles = "Employee")]
+        [Authorize(Roles = "Administrator,CompanyAdmin,Employee")]
         public async Task<ActionResult> Put([FromBody] UpdateCompanyEmployeeDto employee)
         {
             var command = new UpdateCompanyEmployeeCommand { Employee = employee };
@@ -64,6 +64,7 @@ namespace HireManagment.API.Controllers
         }
 
         [HttpDelete("{employeeId}")]
+        [Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
