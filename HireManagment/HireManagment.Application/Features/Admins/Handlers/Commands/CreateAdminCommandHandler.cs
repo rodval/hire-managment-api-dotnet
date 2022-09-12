@@ -4,6 +4,7 @@ using HireManagment.Application.Features.Admins.Request.Commands;
 using HireManagment.Application.Responses;
 using HireManagment.Domain;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,10 @@ namespace HireManagment.Application.Features.Admins.Handlers.Commands
         public async Task<BaseCommandResponses> Handle(CreateAdminCommand request, CancellationToken cancellationToken)
         {
             var response = new BaseCommandResponses();
+            var hasher = new PasswordHasher<AdminApi>();
+
+            request.CreateAdminApi.Password = hasher.HashPassword(null, request.CreateAdminApi.Password);
+
             var admin = _mapper.Map<AdminApi>(request.CreateAdminApi);
 
             admin = await _unitOfWork.AdminRepository.Add(admin);

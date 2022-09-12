@@ -10,6 +10,6 @@ namespace HireManagment.Application.Features.CompanyEmployees.Request.Queries
 {
     public class GetCompanyEmployeeRequest : IRequest<CompanyEmployeeDto>
     {
-        public int CompanyEmployeeId { get; set; }
+        public string CompanyEmployeeId { get; set; }
     }
 }

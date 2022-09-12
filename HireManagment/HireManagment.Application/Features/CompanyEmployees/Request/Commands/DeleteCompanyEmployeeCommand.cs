@@ -9,6 +9,6 @@ namespace HireManagment.Application.Features.CompanyEmployees.Request.Commands
 {
     public class DeleteCompanyEmployeeCommand : IRequest
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
     }
 }

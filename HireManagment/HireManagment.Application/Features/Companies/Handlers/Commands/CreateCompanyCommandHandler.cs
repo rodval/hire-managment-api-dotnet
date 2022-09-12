@@ -33,7 +33,7 @@ namespace HireManagment.Application.Features.Companies.Handlers.Commands
 
             response.Success = true;
             response.Message = "Creation Successful";
-            response.Id = company.Id;
+            response.Id = company.Id.ToString();
 
             return response;
         }

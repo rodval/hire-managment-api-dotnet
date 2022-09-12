@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Policy;
+using Microsoft.AspNetCore.Identity;
 
 namespace HireManagment.Persistence.Entities
 {
@@ -13,22 +15,26 @@ namespace HireManagment.Persistence.Entities
     {
         public void Configure(EntityTypeBuilder<Candidate> builder)
         {
+            var hasher = new PasswordHasher<Candidate>();
+
             builder.HasData(
                 new Candidate
                 {
-                    Id = 1,
+                    Id = "1",
                     FirstName = "Omar",
                     LastName = "Strange",
                     Age = 32,
-                    Email = "rodrigovalladares1@gmail.com"
+                    Email = "rodrigovalladares1@gmail.com",
+                    PasswordHash = hasher.HashPassword(null, "P@ssword1")
                 },
                 new Candidate
                 {
-                    Id = 2,
+                    Id = "2",
                     FirstName = "Ruben",
                     LastName = "Dario",
                     Age = 32,
-                    Email = "rodrigovalladares1@gmail.com"
+                    Email = "candidate2@gmail.com",
+                    PasswordHash = hasher.HashPassword(null, "P@ssword2")
                 }
             );
         }
