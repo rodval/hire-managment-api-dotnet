@@ -7,12 +7,15 @@ using HireManagment.Application.Features.Openings.Request.Queries;
 using HireManagment.Application.Responses;
 using HireManagment.Domain;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace HireManagment.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Administrator,CompanyAdmin,Employee")]
     public class OpeningController : Controller
     {
         private readonly IMediator _mediator;

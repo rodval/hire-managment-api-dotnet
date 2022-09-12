@@ -23,7 +23,7 @@ namespace HireManagment.Persistence.Entities
                     DateCreated = DateTime.Now,
                     DateExpiration = DateTime.Now.AddDays(10),
                     OpeningType = OpeningType.Valid,
-                    CompanyEmployeeId = 1
+                    CompanyEmployeeId = "1"
                 },
                 new Opening
                 {
@@ -33,7 +33,7 @@ namespace HireManagment.Persistence.Entities
                     DateCreated = DateTime.Now,
                     DateExpiration = DateTime.Now.AddDays(25),
                     OpeningType = OpeningType.Valid,
-                    CompanyEmployeeId = 3
+                    CompanyEmployeeId = "3"
                 }
             );
         }

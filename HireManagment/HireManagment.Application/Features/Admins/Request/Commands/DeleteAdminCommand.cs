@@ -9,6 +9,6 @@ namespace HireManagment.Application.Features.Admins.Request.Commands
 {
     public class DeleteAdminCommand : IRequest
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
     }
 }

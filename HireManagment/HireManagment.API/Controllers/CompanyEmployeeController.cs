@@ -7,7 +7,9 @@ using HireManagment.Application.Features.CompanyEmployees.Request.Commands;
 using HireManagment.Application.Features.CompanyEmployees.Request.Queries;
 using HireManagment.Application.Responses;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace HireManagment.API.Controllers
 {
@@ -23,6 +25,7 @@ namespace HireManagment.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult<List<CompanyEmployeeListDto>>> Get()
         {
             var employee = await _mediator.Send(new GetCompanyEmployeeListRequest());
@@ -30,7 +33,8 @@ namespace HireManagment.API.Controllers
         }
 
         [HttpGet("{employeeId}")]
-        public async Task<ActionResult<CompanyEmployeeDto>> Get(int employeeId)
+        [Authorize(Roles = "Administrator,CompanyAdmin,Employee")]
+        public async Task<ActionResult<CompanyEmployeeDto>> Get(string employeeId)
         {
             var employee = await _mediator.Send(new GetCompanyEmployeeRequest { CompanyEmployeeId = employeeId });
             return Ok(employee);
@@ -39,6 +43,7 @@ namespace HireManagment.API.Controllers
         [HttpPost]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult<BaseCommandResponses>> Post([FromBody] CreateCompanyEmployeeDto employee)
         {
             var command = new CreateCompanyEmployeeCommand { CreateEmployee = employee };
@@ -50,6 +55,7 @@ namespace HireManagment.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
+        [Authorize(Roles = "Administrator,CompanyAdmin,Employee")]
         public async Task<ActionResult> Put([FromBody] UpdateCompanyEmployeeDto employee)
         {
             var command = new UpdateCompanyEmployeeCommand { Employee = employee };
@@ -58,10 +64,11 @@ namespace HireManagment.API.Controllers
         }
 
         [HttpDelete("{employeeId}")]
+        [Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult> Delete(int employeeId)
+        public async Task<ActionResult> Delete(string employeeId)
         {
             var command = new DeleteCompanyEmployeeCommand { Id = employeeId };
             await _mediator.Send(command);

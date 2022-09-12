@@ -16,7 +16,7 @@ namespace HireManagment.Domain
         public DateTime? DateExpiration { get; set; }
         public OpeningType OpeningType { get; set; }
 
-        public int CompanyEmployeeId { get; set; }
+        public string? CompanyEmployeeId { get; set; }
         public virtual CompanyEmployee? CompanyEmployee { get; set; }
     }
 }
