@@ -5,6 +5,7 @@ using HireManagment.Application.Features.CompanyEmployees.Request.Commands;
 using HireManagment.Application.Responses;
 using HireManagment.Domain;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,10 @@ namespace HireManagment.Application.Features.CompanyEmployees.Handler.Commands
         public async Task<BaseCommandResponses> Handle(CreateCompanyEmployeeCommand request, CancellationToken cancellationToken)
         {
             var response = new BaseCommandResponses();
+            var hasher = new PasswordHasher<CompanyEmployee>();
+
+            request.CreateEmployee.Password = hasher.HashPassword(null, request.CreateEmployee.Password);
+
             var employee = _mapper.Map<CompanyEmployee>(request.CreateEmployee);
 
             employee = await _unitOfWork.CompanyEmployeeRepository.Add(employee);
@@ -34,7 +39,7 @@ namespace HireManagment.Application.Features.CompanyEmployees.Handler.Commands
 
             response.Success = true;
             response.Message = "Creation Successful";
-            response.Id = Int32.Parse(employee.Id);
+            response.Id = employee.Id;
 
             return response;
         }

@@ -33,6 +33,7 @@ namespace HireManagment.API.Controllers
         }
 
         [HttpGet("{employeeId}")]
+        [Authorize(Roles = "CompanyAdmin")]
         public async Task<ActionResult<CompanyEmployeeDto>> Get(string employeeId)
         {
             var employee = await _mediator.Send(new GetCompanyEmployeeRequest { CompanyEmployeeId = employeeId });
@@ -53,6 +54,8 @@ namespace HireManagment.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
+        [Authorize(Roles = "CompanyAdmin")]
+        [Authorize(Roles = "Employee")]
         public async Task<ActionResult> Put([FromBody] UpdateCompanyEmployeeDto employee)
         {
             var command = new UpdateCompanyEmployeeCommand { Employee = employee };

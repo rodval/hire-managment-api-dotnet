@@ -34,7 +34,7 @@ namespace HireManagment.Application.Features.OpeningApplications.Handler.Command
 
             response.Success = true;
             response.Message = "Creation Successful";
-            response.Id = application.Id;
+            response.Id = application.Id.ToString();
 
             return response;
         }

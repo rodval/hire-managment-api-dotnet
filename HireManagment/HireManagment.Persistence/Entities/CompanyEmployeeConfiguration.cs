@@ -36,7 +36,7 @@ namespace HireManagment.Persistence.Entities
                     LastName = "Bane",
                     Age = 32,
                     Email = "employee2@gmail.com",
-                    PasswordHash = hasher.HashPassword(null, "P@ssword3"),
+                    PasswordHash = hasher.HashPassword(null, "P@ssword2"),
                     EmployeeType = EmployeeType.Employee,
                     CompanyId = 1
                 },

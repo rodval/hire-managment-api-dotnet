@@ -15,6 +15,8 @@ namespace HireManagment.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "CompanyAdmin")]
+    [Authorize(Roles = "Employee")]
     public class OpeningApplicationController : Controller
     {
         private readonly IMediator _mediator;
@@ -41,6 +43,7 @@ namespace HireManagment.API.Controllers
         [HttpPost]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
+        [Authorize(Roles = "Candidate")]
         public async Task<ActionResult<BaseCommandResponses>> Post([FromBody] CreateOpeningApplicationDto application)
         {
             var command = new CreateOpeningApplicationCommand { CreateOpeningApplication = application };

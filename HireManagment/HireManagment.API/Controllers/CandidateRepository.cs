@@ -24,6 +24,7 @@ namespace HireManagment.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Administrator,CompanyAdmin,Employee")]
         public async Task<ActionResult<List<CandidateListDto>>> Get()
         {
             var admins = await _mediator.Send(new GetCandidateListRequest());
@@ -31,6 +32,7 @@ namespace HireManagment.API.Controllers
         }
 
         [HttpGet("{candidateId}")]
+        [Authorize(Roles = "Administrator,CompanyAdmin,Employee,Candidate")]
         public async Task<ActionResult<CandidateDto>> Get(string candidateId)
         {
             var admin = await _mediator.Send(new GetCandidateRequest { CandidateId = candidateId });
@@ -40,6 +42,7 @@ namespace HireManagment.API.Controllers
         [HttpPost]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
+        [AllowAnonymous]
         public async Task<ActionResult<BaseCommandResponses>> Post([FromBody] CreateCandidateDto candidate)
         {
             var command = new CreateCandidateCommand { CreateCandidate = candidate };
@@ -51,6 +54,7 @@ namespace HireManagment.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
+        [Authorize(Roles = "Administrator,CompanyAdmin,Employee,Candidate")]
         public async Task<ActionResult> Put([FromBody] UpdateCandidateDto candidate)
         {
             var command = new UpdateCandidateCommand { Candidate = candidate };
@@ -62,6 +66,7 @@ namespace HireManagment.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
+        [Authorize(Roles = "Administrator,CompanyAdmin,Employee")]
         public async Task<ActionResult> Delete(string candidateId)
         {
             var command = new DeleteAdminCommand { Id = candidateId };

@@ -16,6 +16,8 @@ namespace HireManagment.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "CompanyAdmin")]
+    [Authorize(Roles = "Employee")]
     public class OpeningController : Controller
     {
         private readonly IMediator _mediator;
