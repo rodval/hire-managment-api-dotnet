@@ -25,7 +25,7 @@ namespace HireManagment.API.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Administrator,CompanyAdmin,Employee,Candidate")]
+        [AllowAnonymous]
         public async Task<ActionResult<List<OpeningListDto>>> Get()
         {
             var admins = await _mediator.Send(new GetOpeningListRequest());
