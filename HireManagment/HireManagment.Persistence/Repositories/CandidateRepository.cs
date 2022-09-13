@@ -1,5 +1,6 @@
 ﻿using HireManagment.Application.Contracts.Persistence;
 using HireManagment.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,6 @@ namespace HireManagment.Persistence.Repositories
         public CandidateRepository(HireManagmentDbContext dbContext) : base(dbContext)
         {
             _dbContext = dbContext;
-        }
-
-        public override async Task<Candidate> Get(int id)
-        {
-            return await _dbContext.Set<Candidate>().FindAsync(id);
         }
     }
 }
