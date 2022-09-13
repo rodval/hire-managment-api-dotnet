@@ -17,5 +17,9 @@ namespace HireManagment.Persistence.Repositories
             _dbContext = dbContext;
         }
 
+        public override async Task<CompanyEmployee> Get(int id)
+        {
+            return await _dbContext.Set<CompanyEmployee>().FindAsync(id);
+        }
     }
 }

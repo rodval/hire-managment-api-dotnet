@@ -17,5 +17,9 @@ namespace HireManagment.Persistence.Repositories
             _dbContext = dbContext;
         }
 
+        public override async Task<Opening> Get(int id)
+        {
+            return await _dbContext.Set<Opening>().FindAsync(id);
+        }
     }
 }

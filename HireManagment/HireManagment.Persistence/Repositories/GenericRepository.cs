@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Persistence.Repositories
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public abstract class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly HireManagmentDbContext _dbContext;
 
@@ -17,10 +17,7 @@ namespace HireManagment.Persistence.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<T> Get(int id)
-        {
-            return await _dbContext.Set<T>().FindAsync(id);
-        }
+        public abstract Task<T> Get(int id);
 
         public async Task<T> Get(string id)
         {
