@@ -16,10 +16,5 @@ namespace HireManagment.Persistence.Repositories
         {
             _dbContext = dbContext;
         }
-
-        public override async Task<AdminApi> Get(int id)
-        {
-            return await _dbContext.Set<AdminApi>().FindAsync(id);
-        }
     }
 }

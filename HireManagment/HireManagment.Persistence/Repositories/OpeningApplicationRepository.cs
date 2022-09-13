@@ -1,5 +1,6 @@
 ﻿using HireManagment.Application.Contracts.Persistence;
 using HireManagment.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,9 @@ namespace HireManagment.Persistence.Repositories
             _dbContext = dbContext;
         }
 
-        public override async Task<OpeningApplication> Get(int id)
+        public async Task<IReadOnlyList<OpeningApplication>> GetCandidatesApplication(string id)
         {
-            return await _dbContext.Set<OpeningApplication>().FindAsync(id);
+            return await _dbContext.Set<OpeningApplication>().Where(o => o.CandidateId == id).ToListAsync();
         }
     }
 }

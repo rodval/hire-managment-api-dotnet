@@ -9,5 +9,6 @@ namespace HireManagment.Application.Contracts.Persistence
 {
     public interface IOpeningApplicationRepository : IGenericRepository<OpeningApplication>
     {
+        Task<IReadOnlyList<OpeningApplication>> GetCandidatesApplication(string id);
     }
 }

@@ -47,7 +47,7 @@ namespace HireManagment.API.Controllers
             return Ok(response);
         }
 
-        [HttpPut("{adminId}")]
+        [HttpPut]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
@@ -58,7 +58,7 @@ namespace HireManagment.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{adminId}")]
+        [HttpDelete("{companyId}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]

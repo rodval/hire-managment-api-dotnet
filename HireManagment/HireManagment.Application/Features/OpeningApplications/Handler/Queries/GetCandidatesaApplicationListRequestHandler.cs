@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using HireManagment.Application.Contracts.Persistence;
-using HireManagment.Application.DTOs.Admin;
 using HireManagment.Application.DTOs.OpeningApplication;
-using HireManagment.Application.Features.Admins.Request.Queries;
 using HireManagment.Application.Features.OpeningApplications.Request.Queries;
 using MediatR;
 using System;
@@ -13,20 +11,20 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.Features.OpeningApplications.Handler.Queries
 {
-    public class GetOpeningApplicationListRequestHandler : IRequestHandler<GetOpeningApplicationListRequest, List<OpeningApplicationListDto>>
+    public class GetCandidatesaApplicationListRequestHandler : IRequestHandler<GetCandidatesaApplicationListRequest, List<OpeningApplicationListDto>>
     {
         private readonly IOpeningApplicationRepository _repository;
         private readonly IMapper _mapper;
 
-        public GetOpeningApplicationListRequestHandler(IOpeningApplicationRepository repository, IMapper mapper)
+        public GetCandidatesaApplicationListRequestHandler(IOpeningApplicationRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
 
-        public async Task<List<OpeningApplicationListDto>> Handle(GetOpeningApplicationListRequest request, CancellationToken cancellationToken)
+        public async Task<List<OpeningApplicationListDto>> Handle(GetCandidatesaApplicationListRequest request, CancellationToken cancellationToken)
         {
-            var opening = await _repository.GetAll();
+            var opening = await _repository.GetCandidatesApplication(request.CandidateId);
             return _mapper.Map<List<OpeningApplicationListDto>>(opening);
         }
     }

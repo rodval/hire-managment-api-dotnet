@@ -10,6 +10,8 @@ namespace HireManagment.Domain.Utilities
     {
         InProcess = 1,
         Accepted = 2,
-        Rejected = 3
+        Rejected = 3,
+        Stage1 = 4,
+        Stage2 = 5
     }
 }
