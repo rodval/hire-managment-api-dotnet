@@ -32,10 +32,18 @@ namespace HireManagment.API.Controllers
         }
 
         [HttpGet("{applicationId}")]
-        [Authorize(Roles = "Administrator,CompanyAdmin,Employee,Candidate")]
+        [Authorize(Roles = "Administrator,CompanyAdmin,Employee")]
         public async Task<ActionResult<OpeningApplicationDto>> Get(int applicationId)
         {
             var admin = await _mediator.Send(new GetOpeningApplicationRequest { OpeningApplicationId = applicationId });
+            return Ok(admin);
+        }
+
+        [HttpGet("candidates/{candidateId}")]
+        [Authorize(Roles = "Administrator,CompanyAdmin,Employee,Candidate")]
+        public async Task<ActionResult<OpeningApplicationDto>> GetCandidateApplications(string candidateId)
+        {
+            var admin = await _mediator.Send(new GetCandidatesaApplicationListRequest { CandidateId = candidateId });
             return Ok(admin);
         }
 
@@ -50,7 +58,7 @@ namespace HireManagment.API.Controllers
             return Ok(response);
         }
 
-        [HttpPut("{applicationId}")]
+        [HttpPut]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
