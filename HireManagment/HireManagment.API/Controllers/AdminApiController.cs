@@ -45,7 +45,6 @@ namespace HireManagment.API.Controllers
             return Ok(response);
         }
 
-        [HttpPut("{adminId}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
