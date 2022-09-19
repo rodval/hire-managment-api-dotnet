@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestProject1.Mocks
+namespace HireManagment.Test.Mocks
 {
     public static class MockUnitOfWork
     {

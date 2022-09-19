@@ -4,6 +4,7 @@ using HireManagment.Application.DTOs.Candidate;
 using HireManagment.Application.Features.Candidates.Handlers.Queries;
 using HireManagment.Application.Features.Candidates.Request.Queries;
 using HireManagment.Application.Profiles;
+using HireManagment.Domain;
 using HireManagment.Test.Mocks;
 using Moq;
 using Shouldly;
@@ -15,11 +16,12 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Test.Candidates.Queries
 {
-    public class GetCandidateListRequestHandlerTest
+    public class GetCandidateRequestHandlerTest
     {
         private readonly IMapper _mapper;
         private readonly Mock<ICandidateRepository> _mockRepo;
-        public GetCandidateListRequestHandlerTest()
+
+        public GetCandidateRequestHandlerTest()
         {
             _mockRepo = MockCandidateRepository.GetCandidateRepository();
 
@@ -32,15 +34,14 @@ namespace HireManagment.Test.Candidates.Queries
         }
 
         [Fact]
-        public async Task GeCandidateListTest()
+        public async Task GetCandidateTest()
         {
-            var handler = new GetCandidateListRequestHandler(_mockRepo.Object, _mapper);
+            var handler = new GetCandidateRequestHandler(_mockRepo.Object, _mapper);
 
-            var result = await handler.Handle(new GetCandidateListRequest(), CancellationToken.None);
+            var result = await handler.Handle(new GetCandidateRequest() { CandidateId = "1" } , CancellationToken.None);
 
-            result.ShouldBeOfType<List<CandidateListDto>>();
-
-            result.Count.ShouldBe(2);
+            result.ShouldBeOfType<CandidateDto>();
+            result.Id.ShouldBe(1);
         }
     }
 }

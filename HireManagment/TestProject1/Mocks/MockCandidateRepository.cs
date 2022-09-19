@@ -8,7 +8,7 @@ using HireManagment.Application.Contracts.Persistence;
 using HireManagment.Domain;
 using Microsoft.AspNetCore.Identity;
 
-namespace TestProject1.Mocks
+namespace HireManagment.Test.Mocks
 {
     public class MockCandidateRepository
     {
@@ -41,6 +41,7 @@ namespace TestProject1.Mocks
             var mockRepo = new Mock<ICandidateRepository>();
 
             mockRepo.Setup(r => r.GetAll()).ReturnsAsync(candidates);
+            mockRepo.Setup(r => r.Get("1")).ReturnsAsync(candidates[0]);
 
             mockRepo.Setup(r => r.Add(It.IsAny<Candidate>())).ReturnsAsync((Candidate candidate) =>
             {

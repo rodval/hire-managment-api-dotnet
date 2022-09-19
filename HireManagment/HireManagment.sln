@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HireManagment.API", "HireMa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2AA5CE19-5630-4681-935A-8567C833080F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{F36C71C4-34B1-4EE5-AF0A-0AA52E9484DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HireManagment.Test", "TestProject1\HireManagment.Test.csproj", "{F36C71C4-34B1-4EE5-AF0A-0AA52E9484DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
