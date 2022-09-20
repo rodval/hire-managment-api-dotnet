@@ -13,7 +13,7 @@ namespace HireManagment.Test.Mocks
 {
     public class MockCompanyEmployeeRepository
     {
-        public static Mock<ICompanyEmployeeRepository> GetCompanyRepository()
+        public static Mock<ICompanyEmployeeRepository> GetCompanyEmployeeRepository()
         {
             var hasher = new PasswordHasher<CompanyEmployee>();
 
