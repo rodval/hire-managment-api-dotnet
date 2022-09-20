@@ -17,6 +17,11 @@ namespace HireManagment.Test.Mocks
             var mockCandidateRepo = MockCandidateRepository.GetCandidateRepository();
             var mockAdminRepo = MockAdminRepository.GetAdminRepository();
 
+            var mockCompanyEmployeeRepo = MockCompanyEmployeeRepository.GetCompanyEmployeeRepository();
+            var mockCompanyRepo = MockCompanyRepository.GetCompanyRepository();
+            var mockOpeningRepo = MockOpeningRepository.GetOpeningRepository();
+            var mockOpeningApplicationRepo = MockOpeningApplicationRepository.GetOpeningApplicationRepository();
+
             mockUow.Setup(r => r.CandidateRepository).Returns(mockCandidateRepo.Object);
             mockUow.Setup(r => r.AdminRepository).Returns(mockAdminRepo.Object);
 
