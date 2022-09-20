@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.DTOs.Opening
 {
-    public class CreateOpeningDto : BaseDto
+    public class CreateOpeningDto 
     {
         public string? Title { get; set; }
         public string? Description { get; set; }

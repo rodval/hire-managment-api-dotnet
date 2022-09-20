@@ -69,7 +69,7 @@ namespace HireManagment.API.Controllers
         [Authorize(Roles = "Administrator,CompanyAdmin,Employee")]
         public async Task<ActionResult> Delete(string candidateId)
         {
-            var command = new DeleteAdminCommand { Id = candidateId };
+            var command = new DeleteCandidateCommand { Id = candidateId };
             await _mediator.Send(command);
             return NoContent();
         }

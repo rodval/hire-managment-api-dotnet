@@ -11,7 +11,6 @@ namespace HireManagment.Application.DTOs.CompanyEmployee
     public class UpdateCompanyEmployeeDto : PersonDto
     {
         public EmployeeType EmployeeType { get; set; }
-
         public int CompanyId { get; set; }
     }
 }

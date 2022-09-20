@@ -9,6 +9,5 @@ namespace HireManagment.Application.DTOs.Candidate
 {
     public class CandidateDto : PersonDto
     {
-
     }
 }

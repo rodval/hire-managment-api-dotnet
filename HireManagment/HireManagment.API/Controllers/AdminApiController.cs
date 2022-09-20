@@ -49,7 +49,7 @@ namespace HireManagment.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult> Put([FromBody] AdminApiDto admin)
+        public async Task<ActionResult> Put([FromBody] UpdateAdminApiDto admin)
         {
             var command = new UpdateAdminCommand { AdminApi = admin };
             await _mediator.Send(command);
