@@ -15,8 +15,6 @@ namespace HireManagment.Test.Mocks
     {
         public static Mock<IOpeningRepository> GetAdminRepository()
         {
-            var hasher = new PasswordHasher<Opening>();
-
             var openings = new List<Opening>
             {
                 new Opening
