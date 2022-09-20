@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using HireManagment.Application.Contracts.Persistence;
+using HireManagment.Application.DTOs.Admin;
 using HireManagment.Application.DTOs.Candidate;
+using HireManagment.Application.Features.Admins.Handlers.Commands;
+using HireManagment.Application.Features.Admins.Request.Commands;
 using HireManagment.Application.Features.Candidates.Handlers.Commands;
 using HireManagment.Application.Features.Candidates.Request.Commands;
 using HireManagment.Application.Profiles;
 using HireManagment.Application.Responses;
-using HireManagment.Domain;
 using HireManagment.Test.Mocks;
 using Moq;
 using Shouldly;
@@ -15,16 +17,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HireManagment.Test.Candidates.Command
+namespace HireManagment.Test.Admin.Command
 {
-    public class CreateCandidateCommandHandlerTest
+    public class CreateAdminCommandHandlerTest
     {
         private readonly IMapper _mapper;
         private readonly Mock<IUnitOfWork> _mockUow;
-        private readonly CreateCandidateDto _candidateDto;
-        private readonly CreateCandidateCommandHandler _handler;
+        private readonly CreateAdminApiDto _adminDto;
+        private readonly CreateAdminCommandHandler _handler;
 
-        public CreateCandidateCommandHandlerTest()
+        public CreateAdminCommandHandlerTest()
         {
             _mockUow = MockUnitOfWork.GetUnitOfWork();
 
@@ -34,9 +36,9 @@ namespace HireManagment.Test.Candidates.Command
             });
 
             _mapper = mapperConfig.CreateMapper();
-            _handler = new CreateCandidateCommandHandler(_mockUow.Object, _mapper);
+            _handler = new CreateAdminCommandHandler(_mockUow.Object, _mapper);
 
-            _candidateDto = new CreateCandidateDto
+            _adminDto = new CreateAdminApiDto
             {
                 FirstName = "Robert",
                 LastName = "Wade",
@@ -49,13 +51,13 @@ namespace HireManagment.Test.Candidates.Command
         [Fact]
         public async Task CreateCandidateTest()
         {
-            var result = await _handler.Handle(new CreateCandidateCommand() { CreateCandidate = _candidateDto }, CancellationToken.None);
+            var result = await _handler.Handle(new CreateAdminCommand() { CreateAdminApi = _adminDto }, CancellationToken.None);
 
-            var candidates = await _mockUow.Object.CandidateRepository.GetAll();
+            var admins = await _mockUow.Object.AdminRepository.GetAll();
 
             result.ShouldBeOfType<BaseCommandResponses>();
 
-            candidates.Count.ShouldBe(3);
+            admins.Count.ShouldBe(3);
         }
     }
 }
