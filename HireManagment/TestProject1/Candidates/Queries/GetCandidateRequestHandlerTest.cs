@@ -41,7 +41,7 @@ namespace HireManagment.Test.Candidates.Queries
             var result = await handler.Handle(new GetCandidateRequest() { CandidateId = "1" } , CancellationToken.None);
 
             result.ShouldBeOfType<CandidateDto>();
-            result.Id.ShouldBe(1);
+            result.Id.ShouldBe("1");
         }
     }
 }
