@@ -32,7 +32,7 @@ namespace HireManagment.Test.Mocks
             var mockRepo = new Mock<IOpeningRepository>();
 
             mockRepo.Setup(r => r.GetAll()).ReturnsAsync(openings);
-            mockRepo.Setup(r => r.Get("1")).ReturnsAsync(openings[0]);
+            mockRepo.Setup(r => r.Get(1)).ReturnsAsync(openings[0]);
 
             mockRepo.Setup(r => r.Add(It.IsAny<Opening>())).ReturnsAsync((Opening opening) =>
             {
