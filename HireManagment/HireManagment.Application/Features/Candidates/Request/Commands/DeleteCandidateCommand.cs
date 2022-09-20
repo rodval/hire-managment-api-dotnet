@@ -9,6 +9,6 @@ namespace HireManagment.Application.Features.Candidates.Request.Commands
 {
     public class DeleteCandidateCommand : IRequest
     {
-        public int Id { get; set; }
+        public string? Id { get; set; }
     }
 }

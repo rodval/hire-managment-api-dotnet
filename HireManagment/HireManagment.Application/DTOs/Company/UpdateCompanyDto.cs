@@ -13,6 +13,6 @@ namespace HireManagment.Application.DTOs.Company
         public string? Description { get; set; }
         public string? Address { get; set; }
 
-        public int AdminId { get; set; }
+        public string? AdminId { get; set; }
     }
 }

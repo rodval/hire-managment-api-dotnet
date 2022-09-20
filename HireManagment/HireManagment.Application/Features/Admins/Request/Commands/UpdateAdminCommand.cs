@@ -11,6 +11,6 @@ namespace HireManagment.Application.Features.Admins.Request.Commands
 {
     public class UpdateAdminCommand : IRequest<Unit>
     {
-        public AdminApiDto AdminApi { get; set; }
+        public UpdateAdminApiDto AdminApi { get; set; }
     }
 }

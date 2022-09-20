@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.DTOs.Common
 {
-    public class PersonDto
+    public class PersonListDto
     {
         public string? Id { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
-        public int? Age { get; set; }
-        public string? Email { get; set; }
     }
 }

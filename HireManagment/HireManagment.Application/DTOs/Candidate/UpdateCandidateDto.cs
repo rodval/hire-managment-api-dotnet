@@ -7,11 +7,7 @@ using System.Threading.Tasks;
 
 namespace HireManagment.Application.DTOs.Candidate
 {
-    public class UpdateCandidateDto : BaseDto
+    public class UpdateCandidateDto : PersonDto
     {
-        public string? FirstName { get; set; }
-        public string? LastName { get; set; }
-        public int? Age { get; set; }
-        public string? Email { get; set; }
     }
 }

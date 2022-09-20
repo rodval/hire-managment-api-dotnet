@@ -22,6 +22,7 @@ namespace HireManagment.Application.Profiles
             CreateMap<AdminApi, AdminApiDto>().ReverseMap();
             CreateMap<AdminApi, AdminApiListDto>().ReverseMap();
             CreateMap<AdminApi, CreateAdminApiDto>().ReverseMap();
+            CreateMap<AdminApi, UpdateAdminApiDto>().ReverseMap();
             #endregion AdminApi Mappings
 
             #region Company Mappings
