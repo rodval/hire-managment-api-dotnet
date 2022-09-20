@@ -37,7 +37,7 @@ namespace HireManagment.Test.Mocks
             var mockRepo = new Mock<ICompanyRepository>();
 
             mockRepo.Setup(r => r.GetAll()).ReturnsAsync(companies);
-            mockRepo.Setup(r => r.Get("1")).ReturnsAsync(companies[0]);
+            mockRepo.Setup(r => r.Get(1)).ReturnsAsync(companies[0]);
 
             mockRepo.Setup(r => r.Add(It.IsAny<Company>())).ReturnsAsync((Company companie) =>
             {
