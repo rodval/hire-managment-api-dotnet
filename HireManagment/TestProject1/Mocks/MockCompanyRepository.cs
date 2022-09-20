@@ -39,10 +39,10 @@ namespace HireManagment.Test.Mocks
             mockRepo.Setup(r => r.GetAll()).ReturnsAsync(companies);
             mockRepo.Setup(r => r.Get(1)).ReturnsAsync(companies[0]);
 
-            mockRepo.Setup(r => r.Add(It.IsAny<Company>())).ReturnsAsync((Company companie) =>
+            mockRepo.Setup(r => r.Add(It.IsAny<Company>())).ReturnsAsync((Company company) =>
             {
-                companies.Add(companie);
-                return companie;
+                companies.Add(company);
+                return company;
             });
 
             return mockRepo;
