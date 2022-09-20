@@ -16,14 +16,15 @@ namespace HireManagment.Test.Mocks
 
             var mockCandidateRepo = MockCandidateRepository.GetCandidateRepository();
             var mockAdminRepo = MockAdminRepository.GetAdminRepository();
+            var mockCompanyRepo = MockCompanyRepository.GetCompanyRepository();
 
             var mockCompanyEmployeeRepo = MockCompanyEmployeeRepository.GetCompanyEmployeeRepository();
-            var mockCompanyRepo = MockCompanyRepository.GetCompanyRepository();
             var mockOpeningRepo = MockOpeningRepository.GetOpeningRepository();
             var mockOpeningApplicationRepo = MockOpeningApplicationRepository.GetOpeningApplicationRepository();
 
             mockUow.Setup(r => r.CandidateRepository).Returns(mockCandidateRepo.Object);
             mockUow.Setup(r => r.AdminRepository).Returns(mockAdminRepo.Object);
+            mockUow.Setup(r => r.CompanyRepository).Returns(mockCompanyRepo.Object);
 
             return mockUow;
         }
