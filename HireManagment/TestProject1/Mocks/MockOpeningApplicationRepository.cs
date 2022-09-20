@@ -13,7 +13,7 @@ namespace HireManagment.Test.Mocks
 {
     public class MockOpeningApplicationRepository
     {
-        public static Mock<IOpeningApplicationRepository> GetAdminRepository()
+        public static Mock<IOpeningApplicationRepository> GetOpeningApplicationRepository()
         {
             var applications = new List<OpeningApplication>
             {
