@@ -14,8 +14,6 @@ namespace HireManagment.Test.Mocks
     {
         public static Mock<ICompanyRepository> GetCompanyRepository()
         {
-            var hasher = new PasswordHasher<Company>();
-
             var companies = new List<Company>
             {
                 new Company
