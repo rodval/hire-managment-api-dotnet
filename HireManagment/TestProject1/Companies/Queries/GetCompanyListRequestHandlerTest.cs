@@ -32,7 +32,7 @@ namespace HireManagment.Test.Companies.Queries
         }
 
         [Fact]
-        public async Task GeCandidateListTest()
+        public async Task GeCompanyListTest()
         {
             var handler = new GetCompanyListRequestHandler(_mockRepo.Object, _mapper);
 
