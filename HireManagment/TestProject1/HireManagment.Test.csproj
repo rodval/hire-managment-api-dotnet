@@ -27,8 +27,4 @@
     <ProjectReference Include="..\HireManagment.Application\HireManagment.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Candidates\Command\" />
-  </ItemGroup>
-
 </Project>
