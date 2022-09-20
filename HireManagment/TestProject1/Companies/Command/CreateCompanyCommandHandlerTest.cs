@@ -46,7 +46,7 @@ namespace HireManagment.Test.Companies.Command
         }
 
         [Fact]
-        public async Task CreateCandidateTest()
+        public async Task CreateCompanyTest()
         {
             var result = await _handler.Handle(new CreateCompanyCommand() { CreateCompany = _companyDto }, CancellationToken.None);
 
